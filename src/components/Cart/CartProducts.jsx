@@ -1,5 +1,5 @@
 import React from "react";
-import { Flex, Image, Text, Box, Input, Badge } from "@chakra-ui/react";
+import { Flex, Image, Text, Box, Input, Badge, Button } from "@chakra-ui/react";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 const CartProducts = () => {
   return (
@@ -26,7 +26,8 @@ const CartProducts = () => {
             display={"flex"}
             alignItems="center"
             justifyContent={"center"}
-            fontSize="sm"
+            fontSize="14px"
+            fontWeight={400}
             w="40px"
             h="40px"
             color="#858585"
