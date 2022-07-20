@@ -5,7 +5,10 @@ import Donate from "./Donate";
 import Lend from "./Lend";
 import Pricing from "./Pricing";
 import Home from "./Home";
+
+
 import SingleLend from "../components/lend/SingleLend";
+
 const MainRoutes = () => {
   return (
     <Routes>
@@ -15,6 +18,7 @@ const MainRoutes = () => {
       <Route path="/lend/:id" element={<SingleLend/>} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/contactUs" element={<ContactUs />} />
+      <Route path="/lendingPayment" element={<LendingPayment />} />
     </Routes>
   );
 };
