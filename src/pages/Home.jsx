@@ -3,6 +3,7 @@ import React from 'react'
 import { AiFillRightCircle } from "react-icons/ai"
 import HomePageFund from './HomePageFund'
 const Home = () => {
+
   return (
     <div>
         <Box h={"550px"} maxH={"680px"} w={"100%"} bgImage="url('https://cimages.milaap.org/milaap/image/upload/v1655996033/production/entity_details/milaap_page/524/Desktop_img_2__5__1655996032.jpg')" bgPos={"right"} bgRepeat={"no-repeat"}>
@@ -58,5 +59,6 @@ const Home = () => {
     </div>
   )
 }
+
 
 export default Home

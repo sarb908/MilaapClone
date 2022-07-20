@@ -5,6 +5,7 @@ import { Flex, Box } from "@chakra-ui/react";
 import LendItems from "../components/lend/LendItems";
 
 const Lend = () => {
+
   return (
     <Box w={["80vw", "80vw", "80vw", "80vw"]} margin="auto">
       <Header />
