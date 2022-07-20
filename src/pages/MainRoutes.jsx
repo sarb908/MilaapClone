@@ -8,10 +8,9 @@ import Home from "./Home";
 
 import Signup from "./Signup";
 
-
+import LendingPayment from "./LendingPaymentPage/LendingPayment";
 
 import SingleLend from "../components/lend/SingleLend";
-
 
 const MainRoutes = () => {
   return (
@@ -19,14 +18,13 @@ const MainRoutes = () => {
       <Route path="/" element={<Home />} />
       <Route path="/donate" element={<Donate />} />
       <Route path="/lend" element={<Lend />} />
-      <Route path="/lend/:id" element={<SingleLend/>} />
+      <Route path="/lend/:id" element={<SingleLend />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/contactUs" element={<ContactUs />} />
 
-      <Route path="/Signup" element={<Signup />} />
+      <Route path="/signUp" element={<Signup />} />
 
       <Route path="/lendingPayment" element={<LendingPayment />} />
-
     </Routes>
   );
 };
