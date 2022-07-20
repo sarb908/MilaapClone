@@ -1,6 +1,7 @@
 import React from "react";
 import { Flex } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import CartModal from "./Cart/CartModal";
 const Navbar = () => {
   return (
     <Flex justify={"space-around"}>
@@ -9,6 +10,7 @@ const Navbar = () => {
       <Link to="/lend">Lend</Link>
       <Link to="/pricing">Pricing</Link>
       <Link to="/contactUs">contact us</Link>
+      <CartModal />
     </Flex>
   );
 };
