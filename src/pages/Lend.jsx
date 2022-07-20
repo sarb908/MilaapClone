@@ -1,7 +1,7 @@
 import React from "react";
 
 const Lend = () => {
-  return <div>Lend</div>;
+  return <div></div>;
 };
 
 export default Lend;
