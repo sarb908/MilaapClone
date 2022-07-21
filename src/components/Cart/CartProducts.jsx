@@ -1,12 +1,33 @@
-import React from "react";
-import { Flex, Image, Text, Box, Input, Badge, Button } from "@chakra-ui/react";
+import React, { useState } from "react";
+import {
+  Flex,
+  Image,
+  Text,
+  Box,
+  Input,
+  Badge,
+  useToast,
+} from "@chakra-ui/react";
 import { useDispatch } from "react-redux";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import { deleteCartItemsHandler } from "../../store/CartReducer/action";
 const CartProducts = (props) => {
+  const toast = useToast();
+  const [fund, setFund] = useState(props.required_price);
   const dispatch = useDispatch();
   const clickHandler = () => {
     dispatch(deleteCartItemsHandler(props.id));
+  };
+  const handleChange = (event) => {
+    if (Number(event.target.value) > Number(props.required_price)) {
+      toast({
+        title: `Amount must be less than ${props.required_price}`,
+        status: "error",
+        isClosable: true,
+      });
+      return;
+    }
+    setFund(event.target.value);
   };
   return (
     <Flex gap="5px" mb="20px">
@@ -40,7 +61,8 @@ const CartProducts = (props) => {
             size="md"
             variant="flushed"
             focusBorderColor="#94f0ff"
-            value={props["pull-left"]}
+            value={fund}
+            onChange={handleChange}
           />
           <SmallCloseIcon
             color="#9c3353"

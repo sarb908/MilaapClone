@@ -11,17 +11,26 @@ import {
   Flex,
 } from "@chakra-ui/react";
 import CartProducts from "./CartProducts";
+import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getCartItemsHandler } from "../../store/CartReducer/action";
 export default function CartModal({ isOpen, onOpen, onClose }) {
+  const [total, setTotal] = useState(0);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
   useEffect(() => {
     if (cartItems.length === 0) {
       dispatch(getCartItemsHandler());
     }
   }, []);
+  useEffect(() => {
+    const temp = cartItems.reduce((acc, item) => {
+      return acc + Number(item.required_price);
+    }, 0);
+    setTotal(temp);
+  }, [cartItems]);
 
   return (
     <>
@@ -64,7 +73,7 @@ export default function CartModal({ isOpen, onOpen, onClose }) {
                 Add More Loan
               </Button>
               <Flex alignItems="center" gap="10px">
-                <Text>Total:2341</Text>
+                <Text>Total:{total}</Text>
                 <Button
                   variant="solid"
                   bg="#9c3353"
@@ -72,6 +81,10 @@ export default function CartModal({ isOpen, onOpen, onClose }) {
                   fontSize="14px"
                   borderRadius="20px"
                   fontWeight="500"
+                  onClick={() => {
+                    navigate("/lendingPayment");
+                    onClose();
+                  }}
                   _hover={{ boxShadow: "dark-lg" }}
                 >
                   Pay Now

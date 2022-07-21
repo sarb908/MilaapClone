@@ -12,6 +12,7 @@ import {
   InputLeftAddon,
   InputGroup,
   Input,
+  useToast,
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCartItemsHandler } from "../../store/CartReducer/action";
@@ -21,14 +22,26 @@ import { Link as RouterLink } from "react-router-dom";
 const Card = ({ e }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
+  const toast = useToast();
+  const [fund, setFund] = useState(e.required_price);
   const [item, setItem] = useState({});
   useEffect(() => {
     const temp = cartItems.find((item) => Number(item.id) === Number(e.id));
     setItem(temp);
   }, [cartItems]);
-
+  const handleChange = (event) => {
+    if (event.target.value > e.required_price) {
+      toast({
+        title: `Amount must be less than ${e.required_price}`,
+        status: "error",
+        isClosable: true,
+      });
+      return;
+    }
+    setFund(event.target.value);
+  };
   const handleClick = () => {
-    dispatch(updateCartItemsHandler(e));
+    dispatch(updateCartItemsHandler({ ...e, required_price: fund }));
   };
   return (
     <Flex
@@ -105,6 +118,8 @@ const Card = ({ e }) => {
             <Input
               type="amount"
               variant="flushed"
+              value={fund}
+              onChange={handleChange}
               display={!!item ? "none" : "block"}
             />
             <Button
