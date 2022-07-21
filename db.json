@@ -842,6 +842,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": null,
       "btn-primary 2": null,
+      "funded_price": 80627.00,
+      "required_price": 419373.00,
+      "cause": "enterprise",
+      "state": "westbengal",
       "id": 1
     },
     {
@@ -865,6 +869,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": null,
       "btn-primary 2": null,
+      "funded_price": 61050.98,
+      "required_price":288949.02,
+      "cause": "enterprise",
+      "state": "westbengal",
       "id": 2
     },
     {
@@ -888,6 +896,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": null,
       "btn-primary 2": null,
+      "funded_price": 39326.47,
+      "required_price": 160673.53,
+      "cause": "enterprise",
+      "state": "westbengal",
       "id": 3
     },
     {
@@ -911,6 +923,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": null,
       "btn-primary 2": null,
+      "funded_price": 55132.50,
+      "required_price": 294867.50,
+      "cause": "enterprise",
+      "state": "westbengal",
       "id": 4
     },
     {
@@ -934,6 +950,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": null,
       "btn-primary 2": null,
+      "funded_price": 26062.50,
+      "required_price": 113937.50,
+      "cause": "house",
+      "state": "westbengal",
       "id": 5
     },
     {
@@ -957,6 +977,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": null,
       "btn-primary 2": null,
+      "funded_price": 107804.50,
+      "required_price": 642195.50,
+      "cause": "enterprise",
+      "state": "westbengal",
       "id": 6
     },
     {
@@ -980,6 +1004,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": null,
       "btn-primary 2": null,
+      "funded_price": 46409.50,
+      "required_price": 153590.50,
+      "cause": "enterprise",
+      "state": "tamilnadu",
       "id": 7
     },
     {
@@ -1003,6 +1031,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": null,
       "btn-primary 2": null,
+      "funded_price": 136772.50,
+      "required_price": 13227.50,
+      "cause": "enterprise",
+      "state": "westbengal",
       "id": 8
     },
     {
@@ -1026,6 +1058,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": null,
       "btn-primary 2": null,
+      "funded_price": 46881.08,
+      "required_price": 103118.92,
+      "cause": "enterprise",
+      "state": "tamilnadu",
       "id": 9
     },
     {
@@ -1049,6 +1085,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": null,
       "btn-primary 2": null,
+      "funded_price": 28723.07,
+      "required_price": 196276.93,
+      "cause": "enterprise",
+      "state": "tamilnadu",
       "id": 10
     },
     {
@@ -1072,6 +1112,10 @@
       "help-block 4": "Amount must be a number",
       "btn-primary": "Complete the Loan",
       "btn-primary 2": "Added to Basket",
+      "funded_price": 99157.50,
+      "required_price": 125842.50,
+      "cause": "enterprise",
+      "state": "tamilnadu",
       "id": 11
     }
   ],

@@ -7,7 +7,7 @@ import Card from "./Card";
 const LendCard = () => {
   const dispatch = useDispatch();
   const lend = useSelector((store) => store.reducer.lend);
-  console.log(lend);
+
 
   useEffect(() => {
     if (lend.length === 0) {
@@ -16,8 +16,9 @@ const LendCard = () => {
   });
   return (
     <Box border="1px solid teal">
+
       {lend.map((item) => {
-        return <Card key={item.id} e={item} />;
+        return <Card key={item.id} e={item} />
       })}
     </Box>
   );
