@@ -6,20 +6,25 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
   Button,
   Text,
   Flex,
 } from "@chakra-ui/react";
 import CartProducts from "./CartProducts";
-import { CloseIcon } from "@chakra-ui/icons";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect } from "react";
+import { getCartItemsHandler } from "../../store/CartReducer/action";
+export default function CartModal({ isOpen, onOpen, onClose }) {
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.cartReducer.cartItems);
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      dispatch(getCartItemsHandler());
+    }
+  }, []);
 
-export default function CartModal({ onClick }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
-
       <Modal isOpen={isOpen} onClose={onClose} size="xl">
         <ModalOverlay />
         <ModalContent>
@@ -34,25 +39,15 @@ export default function CartModal({ onClick }) {
           <ModalCloseButton
             bg="#eaeaea"
             color="white"
+            border="none"
             borderRadius="50%"
             size="sm"
             m="auto"
           />
 
           <ModalBody gap="10px">
-            <CartProducts />
-            <CartProducts />
-
-            <CartProducts />
-
-            <CartProducts />
-
-            <CartProducts />
-            <CartProducts />
-            <CartProducts />
-            <CartProducts />
-            <CartProducts />
-            <CartProducts />
+            {cartItems &&
+              cartItems.map((item) => <CartProducts key={item.id} {...item} />)}
           </ModalBody>
 
           <ModalFooter>

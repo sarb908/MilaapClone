@@ -1074,5 +1074,53 @@
       "btn-primary 2": "Added to Basket",
       "id": 11
     }
+  ],
+  "cart": [
+    {
+      "btn": "Complete the Loan",
+      "btn 2": "Added to Basket",
+      "form-group href": "https://milaap.org/fund/jyotsna-singha-and-group/47623",
+      "img": "https://cimages.milaap.org/milaap/image/upload/c_fill,g_faces,h_215,w_320/v1656735473/production/images/loan/a020o000016Lt4BAAS-IMG-20201020-WA0010_1656735472.jpg",
+      "pull-left": "Rs. 61,050.98",
+      "pull-right": "Rs. 2,88,949.02",
+      "leno-link-label": "Jyotsna Singha And Group",
+      "sr-only": "from",
+      "location": "Karandighi, West Bengal",
+      "col-md-8": ": to purchase paddy, rice, etc in order to expand cereals business.",
+      "col-md-8 2": "Purpose",
+      "truncate": "Jyotsna is a 21- year- old married woman. She resides in Uttar Dinajpur district of West Bengal. She has a household of size 4 members. She manages to accumulate a monthly household income of INR 12,500. She has formed and is leading a group of 14 members who work hard to support their families and save diligently.\n\nShe realized that an increase in her and her friend's income levels and control over income will ensure economic empowerment. It will give them an independent means of generating wealth and becoming self-reliant in a soc...",
+      "leno-link-label 2": "Read more",
+      "sr-only 2": "Loan Amount",
+      "help-block": "Amount must be greater than 50",
+      "help-block 2": "Amount must be less than 288949.02",
+      "help-block 3": "Amount cannot be blank",
+      "help-block 4": "Amount must be a number",
+      "btn-primary": null,
+      "btn-primary 2": null,
+      "id": 2
+    },
+    {
+      "btn": "Complete the Loan",
+      "btn 2": "Added to Basket",
+      "form-group href": "https://milaap.org/fund/sabina-bibi-and-group/47617",
+      "img": "https://cimages.milaap.org/milaap/image/upload/c_fill,g_faces,h_215,w_320/v1656735408/production/images/loan/a020o000016LGc9AAG-IMG-20201020-WA0010_1656735407.jpg",
+      "pull-left": "Rs. 39,326.47",
+      "pull-right": "Rs. 1,60,673.53",
+      "leno-link-label": "Sabina Bibi And Group",
+      "sr-only": "from",
+      "location": "Mayureshwar, West Bengal",
+      "col-md-8": ": to purchase rice, dal, sugar, potato,etc in order to expand grocery business.",
+      "col-md-8 2": "Purpose",
+      "truncate": "Sabina is a 39- year- old married woman. She resides in Birbhum district of West Bengal. She has a household of size 5 members. She manages to accumulate a monthly household income of INR 20,000. She has formed and is leading a  group of 5 members who work hard to support their families and save diligently.\n\nShe realized that an increase in her and her friend's income levels and control over income will ensure economic empowerment. It will give them an independent means of generating wealth and becoming self- reliant in a society. T...",
+      "leno-link-label 2": "Read more",
+      "sr-only 2": "Loan Amount",
+      "help-block": "Amount must be greater than 50",
+      "help-block 2": "Amount must be less than 160673.53",
+      "help-block 3": "Amount cannot be blank",
+      "help-block 4": "Amount must be a number",
+      "btn-primary": null,
+      "btn-primary 2": null,
+      "id": 3
+    }
   ]
 }
