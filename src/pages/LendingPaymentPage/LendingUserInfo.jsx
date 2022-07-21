@@ -9,8 +9,8 @@ import {
   Badge,
   Button,
 } from "@chakra-ui/react";
-import { ChevronUpIcon } from "@chakra-ui/icons";
-const LendingUserInfo = () => {
+import { ChevronDownIcon } from "@chakra-ui/icons";
+const LendingUserInfo = (props) => {
   return (
     <Box w="90%" color="white" mt="30px" p="0 30px">
       <Text
@@ -20,9 +20,10 @@ const LendingUserInfo = () => {
         p="14px 15px"
         textAlign={"left"}
         color="#9f9ea3"
+        onClick={props.onClick}
       >
         Provide general details
-        <ChevronUpIcon />
+        <ChevronDownIcon w="6" h="6" />
       </Text>
       <VStack
         bg="white"
@@ -107,6 +108,7 @@ const LendingUserInfo = () => {
             p="0 42px"
             fontSize="14px"
             borderRadius={"20px"}
+            onClick={props.onClick}
           >
             Continue
           </Button>
