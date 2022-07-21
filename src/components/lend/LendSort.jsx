@@ -34,7 +34,7 @@ const LendSort = () => {
           <option value="asc">Expiry</option>
           <option value="desc">Pending amount</option>
           <option value="asc">Recent</option>
-          <option value="asc">Interest rate</option>
+          <option value="desc">Interest rate</option>
         </Select>
         <Button borderRadius={"20px"} size="sm" bg="white" variant={"outline"}>
           <TbArrowsDownUp style={{ color: "#333333", width: "25px" }} />

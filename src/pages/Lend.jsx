@@ -5,18 +5,16 @@ import { Flex, Box } from "@chakra-ui/react";
 import LendItems from "../components/lend/LendItems";
 
 const Lend = () => {
-
   return (
-    <Box w={["80vw", "80vw", "80vw", "80vw"]} margin="auto">
+    <Box w={["50vw", "90vw", "90vw", "80vw", "80vw", "60vw"]} margin="auto">
       <Header />
       <Flex
         justifyContent="space-between"
-        flexDirection={["column", "column", "column", "row"]}
-        border="1px solid red"
+        flexDirection={["column", "column", "column", "column", "row", "row"]}
         mt="50px"
       >
         <LendFilter />
-        <Box border="1px solid green" width="70vw">
+        <Box width="70vw">
           <LendItems />
         </Box>
       </Flex>

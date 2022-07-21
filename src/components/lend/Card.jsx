@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { ImLocation } from "react-icons/im";
 import {
   Box,
@@ -8,6 +7,7 @@ import {
   Flex,
   Text,
   Stack,
+  Link,
   Button,
   InputLeftAddon,
   InputGroup,
@@ -15,6 +15,9 @@ import {
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCartItemsHandler } from "../../store/CartReducer/action";
+import { Link as RouterLink } from "react-router-dom";
+
+
 const Card = ({ e }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
@@ -37,7 +40,9 @@ const Card = ({ e }) => {
     >
       <Box w="250px">
         <Box>
-          <Image src={e.img} />
+          <RouterLink to={`/lend/${e.id}`}>
+            <Image src={e.img} />
+          </RouterLink>
           <Progress
             hasStripe
             isAnimated
@@ -77,17 +82,24 @@ const Card = ({ e }) => {
           {e.btn}
         </Button>
       </Box>
-      <Box textAlign="left" ml="25px">
+      <Box textAlign="left" ml="25px" w={400}>
         <Stack direction="column">
-          <Text fontSize="2xl" color={"#9c3353"}>
-            {e["leno-link-label"]}
-          </Text>
+          <RouterLink to={`/lend/${e.id}`}>
+            <Text fontSize="2xl" color={"#9c3353"}>
+              {e["leno-link-label"]}
+            </Text>
+          </RouterLink>
           <Stack direction="row">
             <ImLocation style={{ color: "gray", marginTop: "5px" }} />
             <Text color="gray">{e.location}</Text>
           </Stack>
-          <Text fontSize="sm">Purpose {e["col-md-8"]}</Text>
-          <Text fontSize="sm">{e.truncate}</Text>
+          <Text fontSize="13px">Purpose {e["col-md-8"]}</Text>
+          <Text fontSize="13px">
+            {e.truncate}
+            <Link color={"#9c3353"}>
+              <RouterLink to={`/lend/${e.id}`}>Read more</RouterLink>
+            </Link>
+          </Text>
           <InputGroup w="230px" size="sm">
             <InputLeftAddon children="₹" display={!!item ? "none" : "block"} />
             <Input
