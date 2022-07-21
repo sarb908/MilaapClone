@@ -1020,7 +1020,7 @@
       "leno-link-label": "Deepa M And Group",
       "sr-only": "from",
       "location": "Coimbatore, Tamil Nadu",
-      "col-md-8": ": to buy dresses in bulk and sell themin the market",
+      "col-md-8": ": to buy dresses in bulk and sell them in the market",
       "col-md-8 2": "Purpose",
       "truncate": "Umarani is a 40-year-old married woman residing in Coimbatore district of Tamil Nadu. She is a working woman and manages to accumulate a household income of an amount of INR.6,000 per month. She leads a group of 10 women who are driven to establish their own lives.\n\nShe realises that an increase in her income levels and control over income will ensure greater levels of economic independence. It will give her an independent means of generating wealth and becoming self-reliant in a society. This will generate benefits not only for her...",
       "leno-link-label 2": "Read more",
@@ -1119,6 +1119,7 @@
       "id": 11
     }
   ],
+
   "cart": [
     {
       "btn": "Complete the Loan",
@@ -1202,4 +1203,5 @@
       "id": 5
     }
   ]
+
 }
