@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   Box,
   Text,
@@ -8,13 +8,14 @@ import {
   TabPanels,
   Tab,
   TabPanel,
+  Button,
 } from "@chakra-ui/react";
 import { InfoOutlineIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import Payment from "./Payment";
 import CreditCard from "./CreditCard";
 const LendingCardDetails = (props) => {
   return (
-    <Box w="80%" mt="30px" p="0 30px">
+    <Box w="80%" mt="30px">
       <Text
         fontSize="14px"
         fontWeight="400"
@@ -28,7 +29,13 @@ const LendingCardDetails = (props) => {
         <ChevronUpIcon w="6" h="6" />
       </Text>
 
-      <Tabs variant="unstyled" mt="40px">
+      <Tabs
+        position="relative"
+        variant="unstyled"
+        mt="40px"
+        mb="300px"
+        pb="100px"
+      >
         <TabList display="flex" gap="15px" color="#5d5d5d" textAlign={"left"}>
           <Tab
             w="49%"
@@ -58,7 +65,7 @@ const LendingCardDetails = (props) => {
                   p="5px"
                   fontWeight={"400"}
                 >
-                  INR 677365.98
+                  INR {props.total}
                 </Text>
                 <Box
                   position="absolute"
@@ -103,7 +110,7 @@ const LendingCardDetails = (props) => {
                 color="white"
               >
                 <Text fontSize="13px" p="5px" fontWeight={"400"}>
-                  INR 677365.98
+                  INR {props.total}
                 </Text>
                 <Box
                   position="absolute"
@@ -136,10 +143,10 @@ const LendingCardDetails = (props) => {
         </TabList>
         <TabPanels>
           <TabPanel width="90%" boxShadow={"lg"} rounded="md" m="30px 0">
-            <Payment />
+            <Payment total={props.total} />
           </TabPanel>
           <TabPanel width="80%" boxShadow={"lg"} rounded="md" m="30px auto">
-            <CreditCard />
+            <CreditCard total={props.total} />
           </TabPanel>
         </TabPanels>
       </Tabs>

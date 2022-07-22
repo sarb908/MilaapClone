@@ -102,7 +102,6 @@ export default function Navbar() {
               <i
                 class="far fa-user-circle"
                 style={{
-                  color: "#9c3353",
                   fontSize: "33px",
                 }}
               ></i>
@@ -146,6 +145,8 @@ const DesktopNav = () => {
           bg={"white"}
           height={"70px"}
           align={"center"}
+          color={linkColor}
+          cursor="pointer"
           padding={"20px 5px 0px 5px"}
           _hover={{
             textDecoration: "none",
@@ -160,7 +161,6 @@ const DesktopNav = () => {
             p={2}
             fontSize={"16px"}
             fontWeight={400}
-            color={linkColor}
             _hover={{
               textDecoration: "none",
               color: "white",

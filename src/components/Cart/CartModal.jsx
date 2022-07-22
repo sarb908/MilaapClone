@@ -29,7 +29,7 @@ export default function CartModal({ isOpen, onOpen, onClose }) {
     const temp = cartItems.reduce((acc, item) => {
       return acc + Number(item.required_price);
     }, 0);
-    setTotal(temp);
+    setTotal(temp.toFixed(2));
   }, [cartItems]);
 
   return (
@@ -82,8 +82,10 @@ export default function CartModal({ isOpen, onOpen, onClose }) {
                   borderRadius="20px"
                   fontWeight="500"
                   onClick={() => {
-                    navigate("/lendingPayment");
-                    onClose();
+                    if (cartItems.length) {
+                      navigate("/lendingPayment");
+                      onClose();
+                    }
                   }}
                   _hover={{ boxShadow: "dark-lg" }}
                 >
