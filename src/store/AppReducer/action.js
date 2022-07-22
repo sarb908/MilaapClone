@@ -3,12 +3,23 @@ import {
   GET_LEND_DATA_REQUEST,
   GET_LEND_DATA_SUCCESS,
   GET_LEND_DATA_FAILURE,
+  GET_DONATE_DATA_REQUEST,
+  GET_DONATE_DATA_SUCCESS,
+  GET_DONATE_DATA_FAILURE
 } from "./actionTypes";
 
-export const getLend = (dispatch) => {
+export const getLend=(params) => (dispatch) => {
   dispatch({ type: GET_LEND_DATA_REQUEST });
   axios
-    .get("http://localhost:8080/lend")
+    .get("http://localhost:8080/lend",params)
     .then((r) => dispatch({ type: GET_LEND_DATA_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: GET_LEND_DATA_FAILURE }));
+};
+
+export const getDonate = (dispatch) => {
+  dispatch({ type: GET_DONATE_DATA_REQUEST });
+  axios
+    .get("http://localhost:8080/donate")
+    .then((r) => dispatch({ type: GET_DONATE_DATA_SUCCESS, payload: r.data }))
+    .catch((e) => dispatch({ type: GET_DONATE_DATA_FAILURE }));
 };

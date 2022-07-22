@@ -1,15 +1,38 @@
-import React from "react";
-import { Flex, Image, Text, Box, Input, Badge, Button } from "@chakra-ui/react";
+import React, { useState } from "react";
+import {
+  Flex,
+  Image,
+  Text,
+  Box,
+  Input,
+  Badge,
+  useToast,
+} from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
 import { SmallCloseIcon } from "@chakra-ui/icons";
-const CartProducts = () => {
+import { deleteCartItemsHandler } from "../../store/CartReducer/action";
+const CartProducts = (props) => {
+  const toast = useToast();
+  const [fund, setFund] = useState(props.required_price);
+  const dispatch = useDispatch();
+  const clickHandler = () => {
+    dispatch(deleteCartItemsHandler(props.id));
+  };
+  const handleChange = (event) => {
+    if (Number(event.target.value) > Number(props.required_price)) {
+      toast({
+        title: `Amount must be less than ${props.required_price}`,
+        status: "error",
+        isClosable: true,
+      });
+      return;
+    }
+    setFund(event.target.value);
+  };
   return (
     <Flex gap="5px" mb="20px">
       <Flex w="20%">
-        <Image
-          h="100%"
-          alt="donate"
-          src="https://cimages.milaap.org/milaap/image/upload/c_fill,g_faces,h_215,w_320/v1656653678/production/images/loan/a029000000s6vSMAAY-BlazeTrust-L-0318-135967_1656653676.jpg"
-        />
+        <Image h="100%" alt="donate" src={props.img} />
       </Flex>
       <Text
         fontWeight="400"
@@ -18,7 +41,7 @@ const CartProducts = () => {
         color="#5d5d5d"
         minWidth="max-content"
       >
-        PARAMESWARI R And Group
+        {props["leno-link-label"]}
       </Text>
       <Box>
         <Flex alignItems={"center"} gap="5px">
@@ -34,7 +57,13 @@ const CartProducts = () => {
           >
             $
           </Badge>
-          <Input size="md" variant="flushed" focusBorderColor="#94f0ff" />
+          <Input
+            size="md"
+            variant="flushed"
+            focusBorderColor="#94f0ff"
+            value={fund}
+            onChange={handleChange}
+          />
           <SmallCloseIcon
             color="#9c3353"
             fontSize="24px"
@@ -48,6 +77,7 @@ const CartProducts = () => {
               boxShadow: "dark-lg",
               cursor: "pointer",
             }}
+            onClick={clickHandler}
           />
         </Flex>
       </Box>
