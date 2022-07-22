@@ -12,32 +12,45 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
+ 
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import {useDispatch,useSelector } from "react-redux";
+import { register } from "../store/AuthReducer/actions";
+import { REGISTER_SUCCESS } from "../store/AuthReducer/actionTypes";
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
-  const [cred, setCred] = useState({});
-  const navigate=useNavigate()
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [cred, setCred] = useState({
+    fullname:"",
+    email:"",
+    password:"",
+    username: "sarb908809s",
+    mobile: "9637158892",
+    description: "A Transformation in tech revolution" ,
 
-  const handleChange = (e) => {
-    let { name, value } = e.target;
-    setCred({ ...cred, [name]: value });
-  };
+
+  });
+ 
   const formsubmit = (e) => {
 
-    e.preventDefault();   
-    console.log("hii")
-    data(cred);
-    navigate("/Login")
+    e.preventDefault(); 
+    dispatch(register(cred)).then((r)=>{
+      if(r===REGISTER_SUCCESS)
+      {
+        navigate("/Login",{replace:true})
+      }
+    }) 
+    
+    
+    
   };
-  const data = (formdata) => {
-    localStorage.setItem("loginDetails", JSON.stringify(formdata));
-  };
-
+  
   return (
     <Flex
       minH={"100vh"}
@@ -101,7 +114,10 @@ export default function Signup() {
                     variant="flushed"
                     placeholder="Full Name"
                     name="fullname"
-                    onChange={handleChange}
+                    onChange={(e)=>{
+                      setCred({...cred,fullname:e.target.value})
+
+                    }}
                     htmlSize={49}
                   />
                 </FormControl>
@@ -114,7 +130,10 @@ export default function Signup() {
                     variant="flushed"
                     placeholder="Email"
                     name="email"
-                    onChange={handleChange}
+                    onChange={(e)=>{
+                      setCred({...cred,email:e.target.value})
+
+                    }}
                   />
                 </FormControl>
               </Stack>
@@ -126,7 +145,10 @@ export default function Signup() {
                       variant="flushed"
                       placeholder="Password"
                       name="password"
-                      onChange={handleChange}
+                      onChange={(e)=>{
+                        setCred({...cred,password:e.target.value})
+  
+                      }}
                     />
                     <InputRightElement h={"full"}>
                       <Button
@@ -161,6 +183,7 @@ export default function Signup() {
 
             <Stack pt={10}>
               <Text align={"center"}>
+              <Link to ="/Login">
                 Already signed up with Milaap?{" "}
                 <Button
                   size="md"
@@ -170,6 +193,7 @@ export default function Signup() {
                 >
                   Login
                 </Button>
+                </Link>
               </Text>
             </Stack>
           </Stack>
