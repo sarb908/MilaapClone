@@ -11,12 +11,14 @@ import Signup from "./Signup";
 import LendingPayment from "./LendingPaymentPage/LendingPayment";
 
 import SingleLend from "../components/lend/SingleLend";
+import SingleDonate from "../components/donate/SingleDonate";
 
 const MainRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/donate" element={<Donate />} />
+      <Route path="/donate/:id" element={<SingleDonate />} />
       <Route path="/lend" element={<Lend />} />
       <Route path="/lend/:id" element={<SingleLend />} />
       <Route path="/pricing" element={<Pricing />} />
@@ -25,6 +27,7 @@ const MainRoutes = () => {
       <Route path="/signUp" element={<Signup />} />
 
       <Route path="/lendingPayment" element={<LendingPayment />} />
+      <Route path='/review' element={<Review />} />
     </Routes>
   );
 };

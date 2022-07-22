@@ -9,22 +9,26 @@ import {
   Tab,
   TabPanel,
 } from "@chakra-ui/react";
-import { InfoOutlineIcon } from "@chakra-ui/icons";
-const LendingCardDetails = () => {
+import { InfoOutlineIcon, ChevronUpIcon } from "@chakra-ui/icons";
+import Payment from "./Payment";
+import CreditCard from "./CreditCard";
+const LendingCardDetails = (props) => {
   return (
-    <Box w="90%" mt="30px" p="0 30px">
-      <Box>
-        <Text
-          color="#5d5d5d"
-          fontWeight="500"
-          fontSize="15px"
-          textAlign={"left"}
-        >
-          Select payment mode
-        </Text>
-      </Box>
+    <Box w="80%" mt="30px" p="0 30px">
+      <Text
+        fontSize="14px"
+        fontWeight="400"
+        bg="#f5f3f3"
+        p="14px 15px"
+        textAlign={"left"}
+        color="#9f9ea3"
+        onClick={props.onClick}
+      >
+        Provide general details
+        <ChevronUpIcon w="6" h="6" />
+      </Text>
 
-      <Tabs variant="unstyled">
+      <Tabs variant="unstyled" mt="40px">
         <TabList display="flex" gap="15px" color="#5d5d5d" textAlign={"left"}>
           <Tab
             w="49%"
@@ -47,7 +51,13 @@ const LendingCardDetails = () => {
                 bg="#582d44"
                 color="white"
               >
-                <Text fontSize="13px" p="5px" fontWeight={"400"}>
+                <Text
+                  role={"tab"}
+                  _selected={{ bg: "red" }}
+                  fontSize="13px"
+                  p="5px"
+                  fontWeight={"400"}
+                >
                   INR 677365.98
                 </Text>
                 <Box
@@ -125,11 +135,11 @@ const LendingCardDetails = () => {
           </Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>
-            <p>one!</p>
+          <TabPanel width="90%" boxShadow={"lg"} rounded="md" m="30px 0">
+            <Payment />
           </TabPanel>
-          <TabPanel>
-            <p>two!</p>
+          <TabPanel width="80%" boxShadow={"lg"} rounded="md" m="30px auto">
+            <CreditCard />
           </TabPanel>
         </TabPanels>
       </Tabs>

@@ -6,20 +6,34 @@ import {
   ModalFooter,
   ModalBody,
   ModalCloseButton,
-  useDisclosure,
   Button,
   Text,
   Flex,
 } from "@chakra-ui/react";
 import CartProducts from "./CartProducts";
-import { CloseIcon } from "@chakra-ui/icons";
+import { useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { getCartItemsHandler } from "../../store/CartReducer/action";
+export default function CartModal({ isOpen, onOpen, onClose }) {
+  const [total, setTotal] = useState(0);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const cartItems = useSelector((state) => state.cartReducer.cartItems);
+  useEffect(() => {
+    if (cartItems.length === 0) {
+      dispatch(getCartItemsHandler());
+    }
+  }, []);
+  useEffect(() => {
+    const temp = cartItems.reduce((acc, item) => {
+      return acc + Number(item.required_price);
+    }, 0);
+    setTotal(temp);
+  }, [cartItems]);
 
-export default function CartModal({ onClick }) {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Button onClick={onOpen}>Open Modal</Button>
-
       <Modal isOpen={isOpen} onClose={onClose} size="xl">
         <ModalOverlay />
         <ModalContent>
@@ -34,25 +48,15 @@ export default function CartModal({ onClick }) {
           <ModalCloseButton
             bg="#eaeaea"
             color="white"
+            border="none"
             borderRadius="50%"
             size="sm"
             m="auto"
           />
 
           <ModalBody gap="10px">
-            <CartProducts />
-            <CartProducts />
-
-            <CartProducts />
-
-            <CartProducts />
-
-            <CartProducts />
-            <CartProducts />
-            <CartProducts />
-            <CartProducts />
-            <CartProducts />
-            <CartProducts />
+            {cartItems &&
+              cartItems.map((item) => <CartProducts key={item.id} {...item} />)}
           </ModalBody>
 
           <ModalFooter>
@@ -69,7 +73,7 @@ export default function CartModal({ onClick }) {
                 Add More Loan
               </Button>
               <Flex alignItems="center" gap="10px">
-                <Text>Total:2341</Text>
+                <Text>Total:{total}</Text>
                 <Button
                   variant="solid"
                   bg="#9c3353"
@@ -77,6 +81,10 @@ export default function CartModal({ onClick }) {
                   fontSize="14px"
                   borderRadius="20px"
                   fontWeight="500"
+                  onClick={() => {
+                    navigate("/lendingPayment");
+                    onClose();
+                  }}
                   _hover={{ boxShadow: "dark-lg" }}
                 >
                   Pay Now

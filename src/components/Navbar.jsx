@@ -4,20 +4,24 @@ import {
   IconButton,
   Button,
   Switch,
+  HStack,
   Stack,
   useColorModeValue,
   Image,
   useDisclosure,
 } from "@chakra-ui/react";
+import { ImCart } from "react-icons/im";
 import { Link as Linked } from "react-router-dom";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import React, { useState } from "react";
-
+import React from "react";
+import CartModal from "./Cart/CartModal";
+import { useSelector } from "react-redux";
 export default function Navbar() {
-  const { isOpen, onToggle } = useDisclosure();
-
+  const { isOpen, onToggle, onOpen, onClose } = useDisclosure();
+  const cartItems = useSelector((state) => state.cartReducer.cartItems);
   return (
     <Box height={"60px"} z-index={"1000"} position={'fixed'} width={'100%'} marginBottom={'10px'}>
+
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
@@ -51,38 +55,42 @@ export default function Navbar() {
           justify={{ base: "center", md: "start" }}
           align={"center"}
         >
-          <Image
-            height="40px"
-            src="https://assets.milaap.org/assets/milaap-logo-tiny-4d3dbc4e55c2aaec351f0f376329c624236c4d6266b910f472684e70603f600d.png"
-          />
+          <Linked to="/">
+            <Image
+              height="40px"
+              src="https://assets.milaap.org/assets/milaap-logo-tiny-4d3dbc4e55c2aaec351f0f376329c624236c4d6266b910f472684e70603f600d.png"
+            />
+          </Linked>
 
-          <Flex display={{ base: "none", md: "flex" }} height={"70px"} ml={10}>
+          <Flex
+            display={{ base: "none", md: "none", lg: "flex" }}
+            justify="space-evenly"
+            height={"70px"}
+            ml={10}
+          >
             <DesktopNav />
           </Flex>
         </Flex>
 
-        <Stack
+        <HStack
           height={"70px"}
+          maxWidth="fit-content"
+          justify="end"
+          spacing={"20"}
           align={"center"}
-          flex={{ base: 1, md: 0 }}
-          paddingRight={"50px"}
-          justify={"flex-end"}
-          direction={"row"}
-          spacing={120}
+          flex="1"
+          p="0 10px"
         >
           <Button
             display={{ base: "none", md: "inline-flex" }}
-            fontSize={"20px"}
+            fontSize={"18px"}
             height={"45px"}
             borderRadius={"50px"}
             width={"230px"}
             cursor={"pointer"}
-            marginLeft={"-25px"}
-            // padding={'4px'}
-            fontWeight={500}
+            fontWeight={400}
             color={"white"}
             bg={"#9c3353"}
-            href={"#"}
             _hover={{
               boxShadow:
                 "0 3px 3px 0 rgb(0 0 0 / 14%), 0 1px 7px 0 rgb(0 0 0 / 12%), 0 3px 1px -1px rgb(0 0 0 / 20%)",
@@ -96,34 +104,47 @@ export default function Navbar() {
                 class="far fa-user-circle"
                 style={{
                   color: "#9c3353",
-                  fontSize: "40px",
-                  fontWeight: "1px",
+                  fontSize: "33px",
                 }}
               ></i>
             </Linked>
           </Box>
-        </Stack>
+          <Box position="relative" onClick={onOpen} cursor="pointer">
+            <ImCart
+              style={{
+                color: "#474747",
+                fontSize: "28px",
+              }}
+            />
+            <Box
+              position="absolute"
+              h="16px"
+              w="16px"
+              fontSize={"10px"}
+              borderRadius={"50%"}
+              top={-2}
+              right={-2}
+              bg="#474747"
+              color="white"
+            >
+              {cartItems.length}
+            </Box>
+          </Box>
+        </HStack>
       </Flex>
+      <CartModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
     </Box>
   );
 }
 
 const DesktopNav = () => {
   const linkColor = useColorModeValue("gray.600", "gray.200");
-  const linkHoverColor = useColorModeValue("gray.600", "white");
-
-  const [colorCode, setColorCode] = useState("white");
-  const [clr, setClr] = useState("#212121");
 
   return (
     <Stack direction={"row"} spacing={7} align={"center"} height={"70px"}>
       {NAV_ITEMS.map((navItem) => (
         <Box
           bg={"white"}
-          onClick={() => {
-            setColorCode("#9c3353");
-            setClr("white");
-          }}
           height={"70px"}
           align={"center"}
           padding={"20px 5px 0px 5px"}
@@ -138,10 +159,8 @@ const DesktopNav = () => {
         >
           <Box
             p={2}
-            // href={navItem.href ?? "#"}
             fontSize={"16px"}
-            fontWeight={500}
-            //color={`${clr}`}
+            fontWeight={400}
             color={linkColor}
             _hover={{
               textDecoration: "none",
