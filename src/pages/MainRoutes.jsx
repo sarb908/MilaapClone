@@ -16,7 +16,6 @@ import Login from "./Login";
 
 import SingleDonate from "../components/donate/SingleDonate";
 
-
 const MainRoutes = () => {
   return (
     <Routes>
@@ -32,7 +31,6 @@ const MainRoutes = () => {
       <Route path="/Login" element={<Login />} />
 
       <Route path="/lendingPayment" element={<LendingPayment />} />
-      <Route path='/review' element={<Review />} />
     </Routes>
   );
 };
