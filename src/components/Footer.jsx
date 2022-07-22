@@ -63,12 +63,12 @@ const SocialButton = ({
 const Footer=()=> {
   return (
     <Box
-      bg={useColorModeValue('gray.50', 'gray.900')}
+      bg={useColorModeValue('white', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}
       boxShadow={'0 -1px 20px 0 rgb(156 51 83 / 20%);'}>
       <Container as={Stack} maxW={'7xl'} py={5} paddingTop={'35px'} >
-        <HStack columns={{ base: 5, sm: 1, md: 1 }} align={'flex-start'}
-        direction={{base:'row', md:'column', sm:'column'}}>
+        <HStack  align={'flex-start'}
+        direction={{base:'row', md:'column', sm:'column'}} gap={'5px'}>
         
           <Stack align={'flex-start'} width='170px'>
             <ListHeader fontSize={'15px'} color={'#212121'}><u>D</u>onate towards</ListHeader>
@@ -107,45 +107,45 @@ const Footer=()=> {
           </Stack>
 
           <Stack align={'flex-start'} width='125px'>
-            <ListHeader fontSize={'15px'} color={'#212121'}>Milaap</ListHeader>
-            <Link href={'#'} color='#9c3353' fontSize={'13px'} fontWeight={'400'}
+            <ListHeader fontSize={'15px'} color={'#212121'}><u>M</u>ilaap</ListHeader>
+            <Link href={'#'} color='#9c3353' fontSize={'14px'} py={1} fontWeight={'500'}
                 _hover={{
                     textDecoration: "none",
                   }}>
                 About Us</Link>
-            <Link href={'#'} color='#9c3353' fontSize={'14px'} fontWeight={'400'}
+            <Link href={'#'} color='#9c3353' fontSize={'14px'} py={2} fontWeight={'500'}
                 _hover={{
                     textDecoration: "none",
                   }}>Press and media</Link>
 
-            <Link href={'#'}color='#9c3353' fontSize={'14px'} fontWeight={'400'}
+            <Link href={'#'}color='#9c3353' fontSize={'14px'} py={2} fontWeight={'500'}
                 _hover={{
                     textDecoration: "none",
                   }}>Team</Link>
 
-            <Link href={'#'} color='#9c3353' fontSize={'14px'} fontWeight={'400'}
+            <Link href={'#'} color='#9c3353' fontSize={'14px'} py={2} fontWeight={'500'}
             _hover={{
                 textDecoration: "none",
               }}>Careers</Link>
 
-            <Link href={'/contactUs'} color='#9c3353' fontSize={'14px'} fontWeight={'400'}
+            <Link href={'/contactUs'} color='#9c3353' fontSize={'14px'} py={2} fontWeight={'500'}
             _hover={{
                 textDecoration: "none",
               }}>Contact</Link>
 
-            <Link href={'#'} color='#9c3353' fontSize={'14px'} fontWeight={'400'}
+            <Link href={'#'} color='#9c3353' fontSize={'14px'} py={2} fontWeight={'500'}
             _hover={{
                 textDecoration: "none",
               }}>Board</Link>
 
-            <Link href={'#'} color='#9c3353' fontSize={'14px'} fontWeight={'400'}
+            <Link href={'#'} color='#9c3353' fontSize={'14px'} py={1} fontWeight={'500'}
             _hover={{
                 textDecoration: "none",
               }}>Thank You</Link>
           </Stack>
 
           <Stack align={'flex-start'} width='248px'>
-            <ListHeader fontSize={'15px'} color={'#212121'}>Indian office address</ListHeader>
+            <ListHeader fontSize={'15px'} color={'#212121'}><u>I</u>ndian office address</ListHeader>
             <Text align={'start'} fontSize='14px' marginBottom='40px' width={'206px'} color={'#6c6c6c'} line-height='1.5'>Milaap Social Ventures India Pvt. Ltd.<br/>
                   ClayWorks Create - building,11th KM Create Campus,Arakere Bannerghatta Rd,<br/>
                   Bangalore, Karnataka, India 560076
@@ -153,7 +153,7 @@ const Footer=()=> {
             <Text height={'30px'}  paddingTop={'10px'} 
             fontSize={'15px'} color={'#212121'} fontWeight={'500'} 
             lineHeight={'1.5'} py={4}
-            >Supported By</Text>
+            ><u>S</u>upported By</Text>
             <Flex align={'center'} gap={'2px'}>
                 <Image width={'49px'} height={'22px'} src="data:image/png;base64,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" />
                 <Image width={'42px'} height={'22px'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpT3-GMtjwNqXKLubqTfOUqh64jZwooTsxxw&usqp=CAU" />
@@ -209,7 +209,7 @@ const Footer=()=> {
           </Box>
           <Box paddingTop={"50px"} align={'flex-start'}>
             <Flex align={'flex-start'}>
-                <Text padding={' 5px 17px 0 15px'} align={'center'} fontSize={'12px'}>Find us on</Text>
+                <Text padding={' 5px 17px 0 0'} align={'start'} fontSize={'12px'}>Find us on</Text>
                 <Stack direction={'row'} spacing={1}>
                 <SocialButton label={'Twitter'} color='#9c3353' href={'#'} >
                 <FaFacebook color='#9c3353' bg="white" borderColor="#9c3353"/>
@@ -231,15 +231,21 @@ const Footer=()=> {
           </Box>
           </Stack>
 
-          <Stack align={'flex-start'} width='419px' height={'256px'} bg={"#ebebe0"} py={2}>
-           <Box bg={"#ebebe0"}></Box>
-          <Box align={'center'}>
-            <Text>Set up, manage and promote your<br />fundraiser with Milaap app</Text>
+          <Stack>
+          <Flex align={'flex-start'} py={2} width='419px' gap={'15px'}
+          height={'256px'} bg={"#f7f7f7"} borderBottomLeftRadius={"50px"} >
+           <Box>
+           <Image width={'200px'} height={'189px'} src="https://pages.milaap.org/wp-content/uploads/2021/10/download-app.png" />
+           </Box>
+          <Box align={'center'} py={2} fontSize={'14px'}>
+            <Text py={2} color={'black'}>Set up, manage and promote your fundraiser with Milaap app</Text>
+            <Text paddingBottom={"10px"} color="#9c3353" fontWeight={"700"} >Download Now!</Text>
             <Grid gap={'25px'} column={{base:'1', md:'2', sm:'2'}}>
            <a href='https://play.google.com/store/apps/details?id=org.milaap.app.android&utm_source=homepage_download_app&utm_medium=desktop'><Image width={'145px'} height={"43px"}  src='https://assets.milaap.org/assets/play-store-btn-3cb8952867b0552ef1377bf63004d9d6613fd11da71e8446e7e6be1fd61f3182.png' /></a>
             <a href='https://apps.apple.com/in/app/milaap/id1571562098?utm_source=homepage_download_app&utm_medium=desktop'><Image width={'145px'} height={"43px"}  src='https://assets.milaap.org/assets/app-store-btn-0ae1713b1521ee08942a97e257b38ac5050a6cf70df4084b3f4ab234e60ea51f.png' /></a>
            </Grid>
           </Box>
+          </Flex>
           </Stack>
         </HStack>
       </Container>
@@ -250,24 +256,31 @@ const Footer=()=> {
         borderTopWidth={1}
         borderStyle={'solid'}
         borderColor={useColorModeValue('gray.200', 'gray.700')}>
-        <Container
-          as={Stack}
-          maxW={'6xl'}
-          // height={'51px'}
-          py={5}
+          <Container
+          padding={'0px 115px'}
+          as={Stack} maxW={'6xl'}// height={'51px'}
+          py={5} fontSize={'11px'} fontWeight={'500'}
           direction={{ base: 'column', md: 'row' }}
-          spacing={{md: '1' }}
-          justify={{ md: 'space-between'}}
-          align={{md: 'center' }}
+          spacing={['50px', '1']} align={{md: 'center' }}
+          justify={{base:'space-around', md: 'space-between'}}
           centerContent>
           
-          <Stack direction={'row'} spacing={6}>
-          <Link>Security & Privacy</Link>
-          <Link>Condition of use</Link>
+          <Stack direction={['column','row']} spacing={6}>
+          <Link
+          href={'/'}
+           _hover={{
+            textDecoration: "none",
+          }}>Security & Privacy</Link>
+          <Link
+          href={'/'}
+          _hover={{
+           textDecoration: "none",
+         }}>Condition of use</Link>
           </Stack>
-          <Text>© 2010 - 2022 milaap.org. All rights reserved.</Text>
-        </Container>
+          <Text color={['white']}>© 2010 - 2022 milaap.org. All rights reserved.</Text>
+        </Container>  
       </Box>
+      
       <Link href="/contactUs">
       <Container centerContent bg={'#9c3353'}
       bottom={'0'} fontSize={'15px'}
@@ -284,6 +297,7 @@ const Footer=()=> {
               </Flex>
       </Container>
       </Link>
+      
     </Box>
   );
 }
