@@ -25,6 +25,7 @@ const MainRoutes = () => {
       <Route path="/signUp" element={<Signup />} />
 
       <Route path="/lendingPayment" element={<LendingPayment />} />
+      <Route path='/review' element={<Review />} />
     </Routes>
   );
 };
