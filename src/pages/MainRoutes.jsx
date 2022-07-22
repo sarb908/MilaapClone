@@ -12,19 +12,27 @@ import LendingPayment from "./LendingPaymentPage/LendingPayment";
 
 import SingleLend from "../components/lend/SingleLend";
 
+import Login from "./Login";
+
+import SingleDonate from "../components/donate/SingleDonate";
+
+
 const MainRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/donate" element={<Donate />} />
+      <Route path="/donate/:id" element={<SingleDonate />} />
       <Route path="/lend" element={<Lend />} />
       <Route path="/lend/:id" element={<SingleLend />} />
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/contactUs" element={<ContactUs />} />
 
       <Route path="/signUp" element={<Signup />} />
+      <Route path="/Login" element={<Login />} />
 
       <Route path="/lendingPayment" element={<LendingPayment />} />
+      <Route path='/review' element={<Review />} />
     </Routes>
   );
 };
