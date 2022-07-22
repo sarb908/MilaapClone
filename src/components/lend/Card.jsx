@@ -18,7 +18,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { updateCartItemsHandler } from "../../store/CartReducer/action";
 import { Link as RouterLink } from "react-router-dom";
 
-
 const Card = ({ e }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
@@ -28,7 +27,7 @@ const Card = ({ e }) => {
   useEffect(() => {
     const temp = cartItems.find((item) => Number(item.id) === Number(e.id));
     setItem(temp);
-  }, [cartItems]);
+  }, [cartItems, e.id]);
   const handleChange = (event) => {
     if (event.target.value > e.required_price) {
       toast({

@@ -2,7 +2,6 @@ import {
   Box,
   Input,
   Stack,
-  useControllableState,
   Popover,
   Button,
   PopoverArrow,
@@ -16,7 +15,6 @@ import {
   PopoverHeader,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-// import { BillDetails } from "./BillDetails";
 import { useNavigate } from "react-router-dom";
 let initState = {
   cardNumber: "",
