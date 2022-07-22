@@ -36,6 +36,8 @@ export default function Navbar() {
         px={{ base: 4 }}
         borderBottom={"none"}
         boxShadow={"0 0 30px 0 rgb(156 51 83 / 20%);"}
+        paddingRight="35px"
+        paddingLeft="35px"
         borderStyle={"solid"}
         margin={"-10px 0 -5px 0"}
         paddingBottom={"-8px"}
@@ -110,6 +112,7 @@ export default function Navbar() {
                 class="far fa-user-circle"
                 style={{
                   fontSize: "33px",
+                  color: "#9c3353",
                 }}
               ></i>
             </Linked>
@@ -177,7 +180,6 @@ const DesktopNav = () => {
           </Box>
         </Box>
       ))}
-      <Switch size="lg" colorScheme="pink" />
     </Stack>
   );
 };
