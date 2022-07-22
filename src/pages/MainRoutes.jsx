@@ -11,7 +11,11 @@ import Signup from "./Signup";
 import LendingPayment from "./LendingPaymentPage/LendingPayment";
 
 import SingleLend from "../components/lend/SingleLend";
+
+import Login from "./Login";
+
 import SingleDonate from "../components/donate/SingleDonate";
+
 
 const MainRoutes = () => {
   return (
@@ -25,6 +29,7 @@ const MainRoutes = () => {
       <Route path="/contactUs" element={<ContactUs />} />
 
       <Route path="/signUp" element={<Signup />} />
+      <Route path="/Login" element={<Login />} />
 
       <Route path="/lendingPayment" element={<LendingPayment />} />
       <Route path='/review' element={<Review />} />

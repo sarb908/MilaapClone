@@ -18,7 +18,7 @@ import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 
-export default function Signup() {
+const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [cred, setCred] = useState({});
   const navigate=useNavigate()
@@ -32,12 +32,11 @@ export default function Signup() {
     e.preventDefault();   
     console.log("hii")
     data(cred);
-    navigate("/Login")
+    navigate("")
   };
   const data = (formdata) => {
     localStorage.setItem("loginDetails", JSON.stringify(formdata));
   };
-
   return (
     <Flex
       minH={"100vh"}
@@ -130,7 +129,6 @@ export default function Signup() {
                     />
                     <InputRightElement h={"full"}>
                       <Button
-                       
                         variant={"ghost"}
                         onClick={() =>
                           setShowPassword((showPassword) => !showPassword)
@@ -143,7 +141,8 @@ export default function Signup() {
                 </FormControl>
               </Stack>
               <Stack spacing={10} pt={10}>
-                <Button  type="submit"
+                <Button
+                  type="submit"
                   style={{ backgroundColor: "#9C3353" }}
                   borderRadius="33px"
                   loadingText="Submitting"
@@ -177,4 +176,6 @@ export default function Signup() {
       </Box>
     </Flex>
   );
-}
+};
+
+export default Login;
