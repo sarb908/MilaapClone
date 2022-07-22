@@ -9,11 +9,8 @@ function App() {
     <Box className="App">
       <Navbar />
       <MainRoutes />
+      <Footer />
     </Box>
-
-
-
-
   );
 }
 
