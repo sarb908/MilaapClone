@@ -1,20 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Select, Box, Text, HStack, Button } from "@chakra-ui/react";
 import { TbArrowsDownUp } from "react-icons/tb";
+import { useSearchParams } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const LendSort = () => {
+  const dispatch = useDispatch()
+  const [searchParams, setSearchParams] = useSearchParams();
+  const urlSort = searchParams.get("sortBy");
+  const [sortBy, setSortby] = useState(urlSort || "");
+
+  const handleSort = (e) => {
+    setSortby(e.target.value);
+  };
+  
+  useEffect(() => {
+    if (sortBy) {
+      let params = {}
+      sortBy && (params.sortBy = sortBy)
+
+      setSearchParams(params)
+    }
+  },[dispatch, setSearchParams, sortBy])
+
   return (
     <Box>
       <HStack>
         <Box width="100px">
           <Text fontWeight={"semibold"}>Sort by</Text>
         </Box>
-        <Select borderRadius={"25px"} size="sm">
-          <option>Popularity</option>
-          <option>Expiry</option>
-          <option>Pending amount</option>
-          <option>Recent</option>
-          <option>Interest rate</option>
+        <Select borderRadius={"25px"} size="sm" onChange={handleSort}>
+          <option value="desc">Popularity</option>
+          <option value="asc">Expiry</option>
+          <option value="desc">Pending amount</option>
+          <option value="asc">Recent</option>
+          <option value="desc">Interest rate</option>
         </Select>
         <Button borderRadius={"20px"} size="sm" bg="white" variant={"outline"}>
           <TbArrowsDownUp style={{ color: "#333333", width: "25px" }} />

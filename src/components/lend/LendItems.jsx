@@ -6,12 +6,11 @@ import LendCard from "./LendCard";
 const LendItems = () => {
   return (
     <Flex
-      border="1px solid blue"
       flexDirection="column"
-      w={[100, 300, 400, 700]}
+      w={[300, 400, 600, 700, 750, 700]}
       margin="auto"
     >
-      <Flex border="1px solid yellow" justifyContent={"right"}>
+      <Flex justifyContent={"right"}>
         <LendSort />
       </Flex>
       <LendCard />
