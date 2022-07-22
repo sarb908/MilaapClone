@@ -11,6 +11,7 @@ const LendCard = () => {
   const location = useLocation();
   const [searchparams] = useSearchParams();
 
+
   useEffect(() => {
     if (lend.length === 0 || location.search) {
       const sortBy = searchparams.get("sortBy");
