@@ -63,12 +63,12 @@ const SocialButton = ({
 const Footer=()=> {
   return (
     <Box
-        height={'425px'}
       bg={useColorModeValue('gray.50', 'gray.900')}
       color={useColorModeValue('gray.700', 'gray.200')}
       boxShadow={'0 -1px 20px 0 rgb(156 51 83 / 20%);'}>
-      <Container as={Stack} maxW={'7xl'} py={10}>
-        <HStack columns={{ base: 1, sm: 1, md: 5 }} align={'flex-start'}>
+      <Container as={Stack} maxW={'7xl'} py={5} paddingTop={'35px'} >
+        <HStack columns={{ base: 5, sm: 1, md: 1 }} align={'flex-start'}
+        direction={{base:'row', md:'column', sm:'column'}}>
         
           <Stack align={'flex-start'} width='170px'>
             <ListHeader fontSize={'15px'} color={'#212121'}><u>D</u>onate towards</ListHeader>
@@ -150,8 +150,11 @@ const Footer=()=> {
                   ClayWorks Create - building,11th KM Create Campus,Arakere Bannerghatta Rd,<br/>
                   Bangalore, Karnataka, India 560076
             </Text>
-            <Text height={'30px'}  paddingTop={'10px'} fontSize={'15px'} color={'#212121'} fontWeight={'500'} lineHeight={'1.5'}>Supported By</Text>
-            <Flex  align={'center'} gap={'2px'}>
+            <Text height={'30px'}  paddingTop={'10px'} 
+            fontSize={'15px'} color={'#212121'} fontWeight={'500'} 
+            lineHeight={'1.5'} py={4}
+            >Supported By</Text>
+            <Flex align={'center'} gap={'2px'}>
                 <Image width={'49px'} height={'22px'} src="data:image/png;base64,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" />
                 <Image width={'42px'} height={'22px'} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTpT3-GMtjwNqXKLubqTfOUqh64jZwooTsxxw&usqp=CAU" />
                 <Image width={'64px'} height={'32px'} src="data:image/png;base64,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" />
@@ -237,22 +240,43 @@ const Footer=()=> {
       <Box
       bg={"black"}
       color={'white'}
-      align="center"
         borderTopWidth={1}
         borderStyle={'solid'}
         borderColor={useColorModeValue('gray.200', 'gray.700')}>
         <Container
           as={Stack}
           maxW={'6xl'}
-          py={4}
+          // height={'51px'}
+          py={5}
           direction={{ base: 'column', md: 'row' }}
-          spacing={4}
-          justify={{ md: 'space-between' }}
-          align={{ md: 'center' }}>
-          <Text>© 2022 Chakra Templates. All rights reserved</Text>
-         
+          spacing={{md: '1' }}
+          justify={{ md: 'space-between'}}
+          align={{md: 'center' }}
+          centerContent>
+          
+          <Stack direction={'row'} spacing={6}>
+          <Link>Security & Privacy</Link>
+          <Link>Condition of use</Link>
+          </Stack>
+          <Text>© 2010 - 2022 milaap.org. All rights reserved.</Text>
         </Container>
       </Box>
+      <Link href="/contactUs">
+      <Container centerContent bg={'#9c3353'}
+      bottom={'0'} fontSize={'15px'}
+      right={'70px'} color={'white'}
+      width={'140px'} height={'44px'}
+      position={'fixed'} borderTopRightRadius={'5px'}
+      borderTopLeftRadius={'5px'}>
+              <Flex align={'center'} gap={'6px'} paddingTop={'14px'} fontWeight={'400'}>
+              <Box  height={'33px'} width={'25px'} >
+              <img src="https://assets.milaap.org/assets/support/support-026639827351db2f76f01cb2405a636907a4b4ea56506f138364b541f9518a4d.png"/>
+              </Box>
+              <Box paddingTop={'3px'} height={'33px'}
+              fontSize={'14px'}>Contact us</Box>
+              </Flex>
+      </Container>
+      </Link>
     </Box>
   );
 }
