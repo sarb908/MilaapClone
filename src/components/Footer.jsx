@@ -231,8 +231,15 @@ const Footer=()=> {
           </Box>
           </Stack>
 
-          <Stack align={'flex-start'} width='291px'>
-           <Box bg={"#f7f7f7"}></Box>
+          <Stack align={'flex-start'} width='419px' height={'256px'} bg={"#ebebe0"} py={2}>
+           <Box bg={"#ebebe0"}></Box>
+          <Box align={'center'}>
+            <Text>Set up, manage and promote your<br />fundraiser with Milaap app</Text>
+            <Grid gap={'25px'} column={{base:'1', md:'2', sm:'2'}}>
+           <a href='https://play.google.com/store/apps/details?id=org.milaap.app.android&utm_source=homepage_download_app&utm_medium=desktop'><Image width={'145px'} height={"43px"}  src='https://assets.milaap.org/assets/play-store-btn-3cb8952867b0552ef1377bf63004d9d6613fd11da71e8446e7e6be1fd61f3182.png' /></a>
+            <a href='https://apps.apple.com/in/app/milaap/id1571562098?utm_source=homepage_download_app&utm_medium=desktop'><Image width={'145px'} height={"43px"}  src='https://assets.milaap.org/assets/app-store-btn-0ae1713b1521ee08942a97e257b38ac5050a6cf70df4084b3f4ab234e60ea51f.png' /></a>
+           </Grid>
+          </Box>
           </Stack>
         </HStack>
       </Container>
