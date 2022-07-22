@@ -46,7 +46,7 @@ const LendingUserInfo = (props) => {
         >
           <Flex alignItems={"center"} w="80%" justify={"center"}>
             <Text fontSize={"12px"}>You are lending</Text>
-            <Text fontSize={"16px"}>$ 9473.65</Text>
+            <Text fontSize={"16px"}>$ {props.total}</Text>
           </Flex>
           <Image
             h="95%"

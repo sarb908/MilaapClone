@@ -3,14 +3,17 @@ import Footer from "./components/Footer.jsx";
 import Navbar from "./components/Navbar";
 import MainRoutes from "./pages/MainRoutes";
 
-
+import { Box } from "@chakra-ui/react";
 function App() {
   return (
-    <div className="App">
+    <Box className="App">
       <Navbar />
       <MainRoutes />
-     <Footer />
-    </div>
+    </Box>
+
+
+
+
   );
 }
 

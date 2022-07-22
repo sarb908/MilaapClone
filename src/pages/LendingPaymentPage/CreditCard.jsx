@@ -7,6 +7,7 @@ import {
   PopoverArrow,
   PopoverCloseButton,
   Text,
+  VStack,
   Flex,
   useToast,
   PopoverTrigger,
@@ -34,7 +35,7 @@ localStorage.setItem(
     cvv: "123",
   })
 );
-const CreditCard = () => {
+const CreditCard = (props) => {
   const [cardPaymentDetails, setCardPaymentDetails] = useState(initState);
   const toast = useToast();
   //////// HANDLING ON CHANGE
@@ -90,7 +91,15 @@ const CreditCard = () => {
       savedPaymentDetails.cvv === cardPaymentDetails.cvv
     ) {
       console.log("CARD PAYMENT SUCCESS");
-      navigate("/checkout/otp");
+      toast({
+        title: `payment successful`,
+        description: "",
+        status: "success",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+      });
+      // navigate("/checkout/otp");
     } else {
       toast({
         title: `Please Enter Valid Card Details`,
@@ -104,160 +113,209 @@ const CreditCard = () => {
     }
   };
   return (
-    <Box mb="25px">
-      <div>
-        <Flex justifyContent={"space-between"}>
-          <p
-            align="left"
-            style={{
-              color: "grey",
-              fontSize: "14px",
-              fontWeight: "500",
-            }}
-          >
-            Card number
-          </p>
-          <Popover>
-            <PopoverTrigger>
-              <Button size="sm">Demo Card Details</Button>
-            </PopoverTrigger>
-            <PopoverContent>
-              <PopoverArrow />
-              <PopoverCloseButton />
-              <PopoverHeader fontWeight={600}>
-                Card Details for Demo
-              </PopoverHeader>
-
-              <PopoverBody>
-                <Flex gap={3} justifyContent="center">
-                  <Box
-                    justifyContent={"flex-end"}
-                    textAlign={"right"}
-                    fontWeight={500}
-                  >
-                    <Text>Card Number:</Text>
-                    <Text>Expiry (MM/YY):</Text>
-                    <Text>CVV :</Text>
-                    <Text>Name :</Text>
-                  </Box>
-                  <Box justifyContent={"flex-start"} textAlign={"left"}>
-                    <Text> 1234567891234567</Text>
-                    <Text> 01/24</Text>
-                    <Text> 123</Text>
-                    <Text> Anything</Text>
-                  </Box>
-                </Flex>
-              </PopoverBody>
-            </PopoverContent>
-          </Popover>
-        </Flex>
-        <Stack spacing={3} mb="40px">
-          <Input
-            variant="flushed"
-            width="50%"
-            focusBorderColor="#9c3353"
-            onChange={(e) => handleOnChange(e)}
-            value={cardPaymentDetails.cardNumber}
-            name="cardNumber"
-            placeholder="Card Number"
-          />
-        </Stack>
-      </div>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          marginBottom: "25px",
-        }}
-      >
+    <>
+      <Box mb="25px">
         <div>
-          <p
-            align="left"
-            style={{
-              color: "grey",
-              fontSize: "14px",
-              fontWeight: "500",
-            }}
-          >
-            Expiry (MM/YY)
-          </p>
-          <div
-            spacing={3}
-            style={{
-              marginLeft: "0",
-              display: "flex",
-              width: "70%",
-              justifyContent: "space-between",
-            }}
-          >
-            <Input
-              variant="flushed"
-              width="40%"
-              focusBorderColor="#9c3353"
-              onChange={(e) => handleOnChange(e)}
-              name="expiryMonth"
-              placeholder="MM"
-              value={cardPaymentDetails.expiryMonth}
-            />
+          <Flex justifyContent={"space-between"}>
+            <p
+              align="left"
+              style={{
+                color: "grey",
+                fontSize: "14px",
+                fontWeight: "500",
+              }}
+            >
+              Card number
+            </p>
+            <Popover>
+              <PopoverTrigger>
+                <Button size="sm">Demo Card Details</Button>
+              </PopoverTrigger>
+              <PopoverContent>
+                <PopoverArrow />
+                <PopoverCloseButton />
+                <PopoverHeader fontWeight={600}>
+                  Card Details for Demo
+                </PopoverHeader>
 
+                <PopoverBody>
+                  <Flex gap={3} justifyContent="center">
+                    <Box
+                      justifyContent={"flex-end"}
+                      textAlign={"right"}
+                      fontWeight={500}
+                    >
+                      <Text>Card Number:</Text>
+                      <Text>Expiry (MM/YY):</Text>
+                      <Text>CVV :</Text>
+                      <Text>Name :</Text>
+                    </Box>
+                    <Box justifyContent={"flex-start"} textAlign={"left"}>
+                      <Text> 1234567891234567</Text>
+                      <Text> 01/24</Text>
+                      <Text> 123</Text>
+                      <Text> Anything</Text>
+                    </Box>
+                  </Flex>
+                </PopoverBody>
+              </PopoverContent>
+            </Popover>
+          </Flex>
+          <Stack spacing={3} mb="40px">
             <Input
-              placeholder="YY"
               variant="flushed"
-              width="40%"
+              width="50%"
               focusBorderColor="#9c3353"
               onChange={(e) => handleOnChange(e)}
-              name="expiryYear"
-              value={cardPaymentDetails.expiryYear}
-            />
-          </div>
-        </div>
-        <div>
-          <p
-            align="left"
-            style={{
-              color: "grey",
-              fontSize: "14px",
-              fontWeight: "500",
-            }}
-          >
-            CVV
-          </p>
-          <Stack spacing={3}>
-            <Input
-              variant="flushed"
-              width="100%"
-              focusBorderColor="#9c3353"
-              onChange={(e) => handleOnChange(e)}
-              name="cvv"
-              placeholder="XXX"
-              value={cardPaymentDetails.cvv}
+              value={cardPaymentDetails.cardNumber}
+              name="cardNumber"
+              placeholder="Card Number"
             />
           </Stack>
         </div>
-      </div>
-      <div mb="25px">
-        <p
-          align="left"
+        <div
           style={{
-            color: "grey",
-            fontSize: "14px",
-            fontWeight: "500",
+            display: "flex",
+            justifyContent: "space-between",
+            marginBottom: "25px",
           }}
         >
-          Card name
-        </p>
-        <Stack spacing={3} mb="40px">
-          <Input
-            variant="flushed"
-            width="50%"
-            focusBorderColor="#9c3353"
-            onChange={(e) => handleOnChange(e)}
-            name="cardName"
-            value={cardPaymentDetails.cardName}
-          />
-        </Stack>
-      </div>
-    </Box>
+          <div>
+            <p
+              align="left"
+              style={{
+                color: "grey",
+                fontSize: "14px",
+                fontWeight: "500",
+              }}
+            >
+              Expiry (MM/YY)
+            </p>
+            <div
+              spacing={3}
+              style={{
+                marginLeft: "0",
+                display: "flex",
+                width: "70%",
+                justifyContent: "space-between",
+              }}
+            >
+              <Input
+                variant="flushed"
+                width="40%"
+                focusBorderColor="#9c3353"
+                onChange={(e) => handleOnChange(e)}
+                name="expiryMonth"
+                placeholder="MM"
+                value={cardPaymentDetails.expiryMonth}
+              />
+
+              <Input
+                placeholder="YY"
+                variant="flushed"
+                width="40%"
+                focusBorderColor="#9c3353"
+                onChange={(e) => handleOnChange(e)}
+                name="expiryYear"
+                value={cardPaymentDetails.expiryYear}
+              />
+            </div>
+          </div>
+          <div>
+            <p
+              align="left"
+              style={{
+                color: "grey",
+                fontSize: "14px",
+                fontWeight: "500",
+              }}
+            >
+              CVV
+            </p>
+            <Stack spacing={3}>
+              <Input
+                variant="flushed"
+                width="100%"
+                focusBorderColor="#9c3353"
+                onChange={(e) => handleOnChange(e)}
+                name="cvv"
+                placeholder="XXX"
+                value={cardPaymentDetails.cvv}
+              />
+            </Stack>
+          </div>
+        </div>
+        <div mb="25px">
+          <p
+            align="left"
+            style={{
+              color: "grey",
+              fontSize: "14px",
+              fontWeight: "500",
+            }}
+          >
+            Card name
+          </p>
+          <Stack spacing={3} mb="40px">
+            <Input
+              variant="flushed"
+              width="50%"
+              focusBorderColor="#9c3353"
+              onChange={(e) => handleOnChange(e)}
+              name="cardName"
+              value={cardPaymentDetails.cardName}
+            />
+          </Stack>
+        </div>
+      </Box>
+      <Flex
+        w="100%"
+        position="absolute"
+        bottom="0"
+        h="90px"
+        borderTopLeftRadius={"15px"}
+        borderTopRightRadius={"15px"}
+        bg="#9c3353"
+        color="white"
+        justifyContent={"space-between"}
+        p="0 30px"
+        alignItems={"center"}
+      >
+        <VStack>
+          <Text textAlign={"left"} fontSize={"12px"} fontWeight="400">
+            You are paying
+          </Text>
+          <Text fontSize={"18px"} fontWeight="400">
+            ₹(INR){props.total}
+          </Text>
+        </VStack>
+        <Flex gap="40px" alignItems={"center"}>
+          <Button
+            fontSize={"14px"}
+            fontWeight="400"
+            variant={"ghost"}
+            _hover={{
+              bg: "#9c3353",
+              color: "white",
+              textDecoration: "underline",
+            }}
+          >
+            Discard
+          </Button>
+          <Button
+            fontSize={"14px"}
+            bg="white"
+            color="#9c3353"
+            fontWeight="500"
+            size={"lg"}
+            borderRadius="15px"
+            onClick={handleSubmitPayment}
+          >
+            Continue
+          </Button>
+        </Flex>
+      </Flex>
+    </>
   );
 };
 
