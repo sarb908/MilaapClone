@@ -16,7 +16,6 @@ import {
   PopoverHeader,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 let initState = {
   cardNumber: "",
   expiryMonth: "",
@@ -39,7 +38,6 @@ const CreditCard = (props) => {
   const [cardPaymentDetails, setCardPaymentDetails] = useState(initState);
   const toast = useToast();
   //////// HANDLING ON CHANGE
-  const navigate = useNavigate();
   const handleOnChange = (e) => {
     let { name, value } = e.target;
     //  console.log("card", name, value, name.length);
