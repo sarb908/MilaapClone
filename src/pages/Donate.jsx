@@ -6,17 +6,16 @@ import Footer from "../components/Footer";
 
 const Donate = () => {
   return (
-    <>
-      <Box>
-        <Flex direction="column">
-          <Box>
-            <RefineSearch />
-          </Box>
-          <DonateItems />
-        </Flex>
-      </Box>
-      <Footer />
-    </>
+
+    <Box>
+      <Flex direction="column">
+        <Box position="absolute" right="250px" >
+          <RefineSearch/>
+        </Box>
+        <DonateItems/>
+      </Flex>
+    </Box>
+
   );
 };
 
