@@ -54,7 +54,7 @@ const Footer = () => {
     <Box
       bg={useColorModeValue("white", "gray.900")}
       color={useColorModeValue("gray.700", "gray.200")}
-      boxShadow={"0 -1px 20px 0 rgb(156 51 83 / 20%);"}
+      boxShadow="rgba(149, 157, 165, 0.2) 0px 8px 24px"
       mt="50px"
     >
       <Container as={Stack} maxW={"100%"} paddingTop={"35px"}>

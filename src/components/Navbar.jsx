@@ -3,7 +3,6 @@ import {
   Flex,
   IconButton,
   Button,
-  Switch,
   HStack,
   Stack,
   useColorModeValue,

@@ -108,7 +108,7 @@ const Payment = (props) => {
         duration: 3000,
         isClosable: true,
       });
-      // navigate("/checkout/otp");
+      navigate("/successPayment");
     } else {
       toast({
         title: `Please Enter Valid Card Details`,
