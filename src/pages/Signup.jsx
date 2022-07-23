@@ -18,38 +18,31 @@ import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import {useDispatch,useSelector } from "react-redux";
-import { register } from "../store/AuthReducer/actions";
-import { REGISTER_SUCCESS } from "../store/AuthReducer/actionTypes";
+
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
-  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [cred, setCred] = useState({
     fullname:"",
     email:"",
     password:"",
-    username: "sarb908809s",
-    mobile: "9637158892",
-    description: "A Transformation in tech revolution" ,
-
-
   });
  
   const formsubmit = (e) => {
 
     e.preventDefault(); 
-    dispatch(register(cred)).then((r)=>{
-      if(r===REGISTER_SUCCESS)
-      {
-        navigate("/Login",{replace:true})
-      }
-    }) 
+    data(cred)
+      
+    }
+    const data=(cred)=>{
+      localStorage.setItem("logindetail",JSON.stringify(cred))
+      navigate("/Login")
+
+    }
     
     
-    
-  };
+  ;
   
   return (
     <Flex

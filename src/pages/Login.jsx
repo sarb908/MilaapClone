@@ -12,32 +12,61 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  Toast,
+  color,
   
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux"
+import { login } from "../store/AuthReducer/actions";
+import { LOGIN_SUCCESS } from "../store/AuthReducer/actionTypes";
+import {toast} from "react-toastify"
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [cred, setCred] = useState({});
+  const signupdata=JSON.parse(localStorage.getItem("logindetail"))
+  const [emailError, setEmailError] = useState("")
+   const dispatch=useDispatch()
+   const[data,setData]=useState({
+    email:"",
+    password:""
+
+   })
+   console.log(signupdata.email)
+  
+ 
   const navigate=useNavigate()
 
-  const handleChange = (e) => {
-    let { name, value } = e.target;
-    setCred({ ...cred, [name]: value });
-  };
+  
   const formsubmit = (e) => {
+    console.log(signupdata.email)
 
-    e.preventDefault();   
-    console.log("hii")
-    data(cred);
-    navigate("")
-  };
-  const data = (formdata) => {
-    localStorage.setItem("loginDetails", JSON.stringify(formdata));
-  };
+    console.log(data)
+  e.preventDefault();
+  if(data.email==="")
+  {
+    setEmailError("email field is required")
+  }
+  if(signupdata.email==data.email&&signupdata.password==data.password)
+  {
+    alert("login suceess")
+    navigate("/")
+  }
+  else
+  {
+    alert("user datail does not match")
+  }
+
+  
+  
+    
+      
+    }
+  
+  
   return (
     <Flex
       minH={"100vh"}
@@ -111,12 +140,18 @@ const Login = () => {
                     placeholder="
                     Mobile number / Email ID"
                     name="email"
-                    onChange={handleChange}
+                    value={data.email}
+                    onChange={(e)=>{
+                      setData({...data,email:e.target.value})
+                    }}
                   />
+                 
                   <InputRightElement width={"70px"} cursor={"pointer"} >
                   <Text>Get Otp</Text>
                   </InputRightElement>
+                  
                   </InputGroup>
+                  <text style={{marginLeft:"-270px",color:"red"}}>{emailError}</text>
                 </FormControl>
               </Stack>
               <Stack pt={7}>
@@ -128,7 +163,10 @@ const Login = () => {
                       placeholder="Password / OTP
                       "
                       name="password"
-                      onChange={handleChange}
+                      value={data.password}
+                      onChange={(e)=>{
+                        setData({...data,password:e.target.value})
+                      }}
                     />
                     <InputRightElement h={"full"}>
                       <Button
@@ -144,6 +182,7 @@ const Login = () => {
                 </FormControl>
               </Stack>
               <Stack spacing={10} pt={10}>
+              
                 <Button
                   type="submit"
                   style={{ backgroundColor: "#9C3353" }}
@@ -158,6 +197,7 @@ const Login = () => {
                 >
                Login
                 </Button>
+                
               </Stack>
             </form>
             <Stack pt={2}>
