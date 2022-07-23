@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import {
   Box,
   Text,
@@ -8,7 +8,6 @@ import {
   TabPanels,
   Tab,
   TabPanel,
-  Button,
 } from "@chakra-ui/react";
 import { InfoOutlineIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import Payment from "./Payment";

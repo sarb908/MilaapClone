@@ -2,71 +2,63 @@ import {
   Flex,
   Box,
   FormControl,
-  FormLabel,
   Input,
   InputGroup,
   HStack,
   InputRightElement,
   Stack,
   Button,
-  Heading,
   Text,
   useColorModeValue,
-  Toast,
-  color,
-  
+  useToast,
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux"
-import { login } from "../store/AuthReducer/actions";
-import { LOGIN_SUCCESS } from "../store/AuthReducer/actionTypes";
-import {toast} from "react-toastify"
 
+const signupdata = JSON.parse(localStorage.getItem("logindetail")) || {};
 const Login = () => {
+  const toast = useToast();
   const [showPassword, setShowPassword] = useState(false);
-  const signupdata=JSON.parse(localStorage.getItem("logindetail"))
-  const [emailError, setEmailError] = useState("")
-   const dispatch=useDispatch()
-   const[data,setData]=useState({
-    email:"",
-    password:""
+  const [emailError, setEmailError] = useState("");
+  const [data, setData] = useState({
+    email: "",
+    password: "",
+  });
+  console.log(signupdata);
 
-   })
-   console.log(signupdata.email)
-  
- 
-  const navigate=useNavigate()
+  const navigate = useNavigate();
 
-  
   const formsubmit = (e) => {
-    console.log(signupdata.email)
+    console.log(data);
 
-    console.log(data)
-  e.preventDefault();
-  if(data.email==="")
-  {
-    setEmailError("email field is required")
-  }
-  if(signupdata.email==data.email&&signupdata.password==data.password)
-  {
-    alert("login suceess")
-    navigate("/")
-  }
-  else
-  {
-    alert("user datail does not match")
-  }
-
-  
-  
-    
-      
+    console.log(data);
+    e.preventDefault();
+    if (data.email === "") {
+      setEmailError("email field is required");
     }
-  
-  
+    if (
+      signupdata.email === data.email &&
+      Number(signupdata.password) === Number(data.password)
+    ) {
+      toast({
+        title: "login suceess",
+        status: "success",
+        duration: 3000,
+        isClosable: true,
+      });
+      navigate("/");
+    } else {
+      toast({
+        title: "user datail does not match",
+        status: "error",
+        duration: 3000,
+        isClosable: true,
+      });
+    }
+  };
+
   return (
     <Flex
       minH={"100vh"}
@@ -95,7 +87,10 @@ const Login = () => {
                 marginLeft: "10px",
               }}
             >
-              <img src="https://assets.milaap.org/assets/milaap-trasparent-logo-25f6253e0156e2f82e2c3daf85575d169864e35ffffd21033ac59da0b4dd88e0.png" />
+              <img
+                alt="img"
+                src="https://assets.milaap.org/assets/milaap-trasparent-logo-25f6253e0156e2f82e2c3daf85575d169864e35ffffd21033ac59da0b4dd88e0.png"
+              />
             </box>
             <Stack w="190px" h="110px" style={{ marginLeft: "-30px" }}>
               <h1 style={{ fontSize: "19px" }}>Welcome to Milaap,</h1>
@@ -117,41 +112,55 @@ const Login = () => {
                 marginTop: "-10px",
               }}
             >
-              <h1 style={{ color: "grey", size: "20px" ,marginTop:"-45px" }}>
-              Quickly login using
+              <h1 style={{ color: "grey", size: "20px", marginTop: "-45px" }}>
+                Quickly login using
               </h1>
               <HStack pt={5} spacing={9}>
-
-              <Button ml={10} style={{color:"white",backgroundColor:"#3b5998",borderRadius:"33px"}}>Facebook</Button>
-              <Button style={{color:"white",backgroundColor:"#dd4b39",borderRadius:"33px"}}>Google</Button>
-             
+                <Button
+                  ml={10}
+                  style={{
+                    color: "white",
+                    backgroundColor: "#3b5998",
+                    borderRadius: "33px",
+                  }}
+                >
+                  Facebook
+                </Button>
+                <Button
+                  style={{
+                    color: "white",
+                    backgroundColor: "#dd4b39",
+                    borderRadius: "33px",
+                  }}
+                >
+                  Google
+                </Button>
               </HStack>
             </box>
 
             <form onSubmit={formsubmit}>
-              
-
               <Stack pt={8}>
                 <FormControl id="email">
-                <InputGroup>
-                  <Input
-                    type="email"
-                    variant="flushed"
-                    placeholder="
+                  <InputGroup>
+                    <Input
+                      type="email"
+                      variant="flushed"
+                      placeholder="
                     Mobile number / Email ID"
-                    name="email"
-                    value={data.email}
-                    onChange={(e)=>{
-                      setData({...data,email:e.target.value})
-                    }}
-                  />
-                 
-                  <InputRightElement width={"70px"} cursor={"pointer"} >
-                  <Text>Get Otp</Text>
-                  </InputRightElement>
-                  
+                      name="email"
+                      value={data.email}
+                      onChange={(e) => {
+                        setData({ ...data, email: e.target.value });
+                      }}
+                    />
+
+                    <InputRightElement width={"70px"} cursor={"pointer"}>
+                      <Text>Get Otp</Text>
+                    </InputRightElement>
                   </InputGroup>
-                  <text style={{marginLeft:"-270px",color:"red"}}>{emailError}</text>
+                  <Text style={{ marginLeft: "-270px", color: "red" }}>
+                    {emailError}
+                  </Text>
                 </FormControl>
               </Stack>
               <Stack pt={7}>
@@ -164,8 +173,8 @@ const Login = () => {
                       "
                       name="password"
                       value={data.password}
-                      onChange={(e)=>{
-                        setData({...data,password:e.target.value})
+                      onChange={(e) => {
+                        setData({ ...data, password: e.target.value });
                       }}
                     />
                     <InputRightElement h={"full"}>
@@ -182,7 +191,6 @@ const Login = () => {
                 </FormControl>
               </Stack>
               <Stack spacing={10} pt={10}>
-              
                 <Button
                   type="submit"
                   style={{ backgroundColor: "#9C3353" }}
@@ -195,30 +203,28 @@ const Login = () => {
                     bg: "pink.500",
                   }}
                 >
-               Login
+                  Login
                 </Button>
-                
               </Stack>
             </form>
             <Stack pt={2}>
-            <Text align={"center"} style={{color:"#9C3353"}}>
-            Forgot Password?
-            </Text>
+              <Text align={"center"} style={{ color: "#9C3353" }}>
+                Forgot Password?
+              </Text>
             </Stack>
 
-
             <Stack pt={6}>
-              <Text align={"center"} >
-              New to Milaap? Sign up now, it’s quick & free{" "}
-              <Link to="/Signup">
-                <Button 
-                  size="md"
-                  borderRadius="33px"
-                  style={{ backgroundColor: "#9C3353" }}
-                  color="white"
-                >
-                  Signup
-                </Button>
+              <Text align={"center"}>
+                New to Milaap? Sign up now, it’s quick & free{" "}
+                <Link to="/Signup">
+                  <Button
+                    size="md"
+                    borderRadius="33px"
+                    style={{ backgroundColor: "#9C3353" }}
+                    color="white"
+                  >
+                    Signup
+                  </Button>
                 </Link>
               </Text>
             </Stack>
