@@ -5,7 +5,7 @@ export const getCartItemsHandler = () => (dispatch) => {
     type: types.GET_CART_ITEMS_REQUEST,
   });
   return axios
-    .get(`http://localhost:8080/cart`)
+    .get(`https://milapp-json-server.herokuapp.com/cart`)
     .then((d) => {
       console.log(d.data);
       return dispatch({
@@ -26,7 +26,7 @@ export const updateCartItemsHandler = (item) => (dispatch) => {
     type: types.UPDATE_CART_ITEMS_REQUEST,
   });
   return axios
-    .post(`http://localhost:8080/cart`, item)
+    .post(`https://milapp-json-server.herokuapp.com/cart`, item)
     .then((d) => {
       console.log(d.data);
       return dispatch({
@@ -49,7 +49,7 @@ export const deleteCartItemsHandler = (id) => (dispatch) => {
     type: types.DELETE_CART_ITEMS_REQUEST,
   });
   return axios
-    .delete(`http://localhost:8080/cart/${id}`)
+    .delete(`https://milapp-json-server.herokuapp.com/cart/${id}`)
     .then((d) => {
       console.log(d.data);
       return dispatch({

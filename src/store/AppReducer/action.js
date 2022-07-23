@@ -11,7 +11,7 @@ import {
 export const getLend=(params) => (dispatch) => {
   dispatch({ type: GET_LEND_DATA_REQUEST });
   axios
-    .get("http://localhost:8080/lend",params)
+    .get("https://milapp-json-server.herokuapp.com/lend", params)
     .then((r) => dispatch({ type: GET_LEND_DATA_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: GET_LEND_DATA_FAILURE }));
 };
@@ -19,7 +19,7 @@ export const getLend=(params) => (dispatch) => {
 export const getDonate =()=> (dispatch) => {
   dispatch({ type: GET_DONATE_DATA_REQUEST });
   axios
-    .get("http://localhost:8080/donate")
+    .get("https://milapp-json-server.herokuapp.com/donate")
     .then((r) => dispatch({ type: GET_DONATE_DATA_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: GET_DONATE_DATA_FAILURE }));
 };
