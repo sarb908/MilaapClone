@@ -16,7 +16,7 @@ export const getLend=(params) => (dispatch) => {
     .catch((e) => dispatch({ type: GET_LEND_DATA_FAILURE }));
 };
 
-export const getDonate = (dispatch) => {
+export const getDonate =()=> (dispatch) => {
   dispatch({ type: GET_DONATE_DATA_REQUEST });
   axios
     .get("http://localhost:8080/donate")
