@@ -58,7 +58,7 @@ const Card = ({ e }) => {
           <Progress
             hasStripe
             isAnimated
-            value={64}
+            value={(e.funded_price * 100) / (e.funded_price + e.required_price)}
             colorScheme="whiteAlpha"
             bg={"#9c3353"}
             height="24px"
