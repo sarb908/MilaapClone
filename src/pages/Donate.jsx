@@ -7,8 +7,8 @@ const Donate = () => {
   return (
     <Box>
       <Flex direction="column">
-        <Box>
-          <RefineSearch />
+        <Box position="absolute" right="250px" >
+          <RefineSearch/>
         </Box>
         <DonateItems/>
       </Flex>

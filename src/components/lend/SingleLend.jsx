@@ -36,7 +36,6 @@ const SingleLend = () => {
     }
   }, [lend, id]);
 
-  console.log(item);
 
   return (
     <Box>

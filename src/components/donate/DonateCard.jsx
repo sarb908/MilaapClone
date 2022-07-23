@@ -12,8 +12,8 @@ import {
 import { Link } from "react-router-dom";
 
 const DonateCard = ({ e }) => {
-  var img = e["lozad src"];
-  var image = {
+  const img = e["lozad src"];
+  const image = {
     background: "url(" + img + ")",
     bgSize: "100%",
     backgroundRepeat: "repeat-x",
