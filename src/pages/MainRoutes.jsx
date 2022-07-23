@@ -15,6 +15,7 @@ import SingleLend from "../components/lend/SingleLend";
 import Login from "./Login";
 
 import SingleDonate from "../components/donate/SingleDonate";
+import SuccessPayment from "./SuccessPayment";
 
 const MainRoutes = () => {
   return (
@@ -31,6 +32,7 @@ const MainRoutes = () => {
       <Route path="/Login" element={<Login />} />
 
       <Route path="/lendingPayment" element={<LendingPayment />} />
+      <Route path="/successPayment" element={<SuccessPayment />} />
     </Routes>
   );
 };
