@@ -12,32 +12,38 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
+ 
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 
 export default function Signup() {
   const [showPassword, setShowPassword] = useState(false);
-  const [cred, setCred] = useState({});
-  const navigate=useNavigate()
-
-  const handleChange = (e) => {
-    let { name, value } = e.target;
-    setCred({ ...cred, [name]: value });
-  };
+  const navigate = useNavigate();
+  const [cred, setCred] = useState({
+    fullname:"",
+    email:"",
+    password:"",
+  });
+ 
   const formsubmit = (e) => {
 
-    e.preventDefault();   
-    console.log("hii")
-    data(cred);
-    navigate("/Login")
-  };
-  const data = (formdata) => {
-    localStorage.setItem("loginDetails", JSON.stringify(formdata));
-  };
+    e.preventDefault(); 
+    data(cred)
+      
+    }
+    const data=(cred)=>{
+      localStorage.setItem("logindetail",JSON.stringify(cred))
+      navigate("/Login")
 
+    }
+    
+    
+  ;
+  
   return (
     <Flex
       minH={"100vh"}
@@ -101,7 +107,10 @@ export default function Signup() {
                     variant="flushed"
                     placeholder="Full Name"
                     name="fullname"
-                    onChange={handleChange}
+                    onChange={(e)=>{
+                      setCred({...cred,fullname:e.target.value})
+
+                    }}
                     htmlSize={49}
                   />
                 </FormControl>
@@ -114,7 +123,10 @@ export default function Signup() {
                     variant="flushed"
                     placeholder="Email"
                     name="email"
-                    onChange={handleChange}
+                    onChange={(e)=>{
+                      setCred({...cred,email:e.target.value})
+
+                    }}
                   />
                 </FormControl>
               </Stack>
@@ -126,7 +138,10 @@ export default function Signup() {
                       variant="flushed"
                       placeholder="Password"
                       name="password"
-                      onChange={handleChange}
+                      onChange={(e)=>{
+                        setCred({...cred,password:e.target.value})
+  
+                      }}
                     />
                     <InputRightElement h={"full"}>
                       <Button
@@ -161,6 +176,7 @@ export default function Signup() {
 
             <Stack pt={10}>
               <Text align={"center"}>
+              <Link to ="/Login">
                 Already signed up with Milaap?{" "}
                 <Button
                   size="md"
@@ -170,6 +186,7 @@ export default function Signup() {
                 >
                   Login
                 </Button>
+                </Link>
               </Text>
             </Stack>
           </Stack>

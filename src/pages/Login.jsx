@@ -12,31 +12,61 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  Link,
+  Toast,
+  color,
+  
 } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux"
+import { login } from "../store/AuthReducer/actions";
+import { LOGIN_SUCCESS } from "../store/AuthReducer/actionTypes";
+import {toast} from "react-toastify"
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const [cred, setCred] = useState({});
+  const signupdata=JSON.parse(localStorage.getItem("logindetail"))
+  const [emailError, setEmailError] = useState("")
+   const dispatch=useDispatch()
+   const[data,setData]=useState({
+    email:"",
+    password:""
+
+   })
+   console.log(signupdata.email)
+  
+ 
   const navigate=useNavigate()
 
-  const handleChange = (e) => {
-    let { name, value } = e.target;
-    setCred({ ...cred, [name]: value });
-  };
+  
   const formsubmit = (e) => {
+    console.log(signupdata.email)
 
-    e.preventDefault();   
-    console.log("hii")
-    data(cred);
-    navigate("")
-  };
-  const data = (formdata) => {
-    localStorage.setItem("loginDetails", JSON.stringify(formdata));
-  };
+    console.log(data)
+  e.preventDefault();
+  if(data.email==="")
+  {
+    setEmailError("email field is required")
+  }
+  if(signupdata.email==data.email&&signupdata.password==data.password)
+  {
+    alert("login suceess")
+    navigate("/")
+  }
+  else
+  {
+    alert("user datail does not match")
+  }
+
+  
+  
+    
+      
+    }
+  
+  
   return (
     <Flex
       minH={"100vh"}
@@ -87,34 +117,41 @@ const Login = () => {
                 marginTop: "-10px",
               }}
             >
-              <h1 style={{ color: "grey", size: "20px" }}>
-                Sign up & manage fundraisers, donations & more
+              <h1 style={{ color: "grey", size: "20px" ,marginTop:"-45px" }}>
+              Quickly login using
               </h1>
+              <HStack pt={5} spacing={9}>
+
+              <Button ml={10} style={{color:"white",backgroundColor:"#3b5998",borderRadius:"33px"}}>Facebook</Button>
+              <Button style={{color:"white",backgroundColor:"#dd4b39",borderRadius:"33px"}}>Google</Button>
+             
+              </HStack>
             </box>
 
             <form onSubmit={formsubmit}>
-              <Stack pt={7}>
-                <FormControl id="lastName">
-                  <Input
-                    type="text"
-                    variant="flushed"
-                    placeholder="Full Name"
-                    name="fullname"
-                    onChange={handleChange}
-                    htmlSize={49}
-                  />
-                </FormControl>
-              </Stack>
+              
 
-              <Stack pt={7}>
+              <Stack pt={8}>
                 <FormControl id="email">
+                <InputGroup>
                   <Input
                     type="email"
                     variant="flushed"
-                    placeholder="Email"
+                    placeholder="
+                    Mobile number / Email ID"
                     name="email"
-                    onChange={handleChange}
+                    value={data.email}
+                    onChange={(e)=>{
+                      setData({...data,email:e.target.value})
+                    }}
                   />
+                 
+                  <InputRightElement width={"70px"} cursor={"pointer"} >
+                  <Text>Get Otp</Text>
+                  </InputRightElement>
+                  
+                  </InputGroup>
+                  <text style={{marginLeft:"-270px",color:"red"}}>{emailError}</text>
                 </FormControl>
               </Stack>
               <Stack pt={7}>
@@ -123,9 +160,13 @@ const Login = () => {
                     <Input
                       type={showPassword ? "text" : "password"}
                       variant="flushed"
-                      placeholder="Password"
+                      placeholder="Password / OTP
+                      "
                       name="password"
-                      onChange={handleChange}
+                      value={data.password}
+                      onChange={(e)=>{
+                        setData({...data,password:e.target.value})
+                      }}
                     />
                     <InputRightElement h={"full"}>
                       <Button
@@ -141,6 +182,7 @@ const Login = () => {
                 </FormControl>
               </Stack>
               <Stack spacing={10} pt={10}>
+              
                 <Button
                   type="submit"
                   style={{ backgroundColor: "#9C3353" }}
@@ -153,22 +195,31 @@ const Login = () => {
                     bg: "pink.500",
                   }}
                 >
-                  Sign up
+               Login
                 </Button>
+                
               </Stack>
             </form>
+            <Stack pt={2}>
+            <Text align={"center"} style={{color:"#9C3353"}}>
+            Forgot Password?
+            </Text>
+            </Stack>
 
-            <Stack pt={10}>
-              <Text align={"center"}>
-                Already signed up with Milaap?{" "}
-                <Button
+
+            <Stack pt={6}>
+              <Text align={"center"} >
+              New to Milaap? Sign up now, it’s quick & free{" "}
+              <Link to="/Signup">
+                <Button 
                   size="md"
                   borderRadius="33px"
                   style={{ backgroundColor: "#9C3353" }}
                   color="white"
                 >
-                  Login
+                  Signup
                 </Button>
+                </Link>
               </Text>
             </Stack>
           </Stack>
