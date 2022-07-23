@@ -16,6 +16,7 @@ import Login from "./Login";
 
 import SingleDonate from "../components/donate/SingleDonate";
 import SuccessPayment from "./SuccessPayment";
+import Review from "./Review";
 
 const MainRoutes = () => {
   return (
@@ -30,7 +31,7 @@ const MainRoutes = () => {
 
       <Route path="/signUp" element={<Signup />} />
       <Route path="/Login" element={<Login />} />
-
+      <Route path = "/Review" element={<Review />} /> 
       <Route path="/lendingPayment" element={<LendingPayment />} />
       <Route path="/successPayment" element={<SuccessPayment />} />
     </Routes>
