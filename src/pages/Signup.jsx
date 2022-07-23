@@ -2,40 +2,43 @@ import {
   Flex,
   Box,
   FormControl,
-  FormLabel,
+  useToast,
   Input,
   InputGroup,
   HStack,
   InputRightElement,
   Stack,
   Button,
-  Heading,
   Text,
   useColorModeValue,
-  Link,
 } from "@chakra-ui/react";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { register } from "../store/AuthReducer/actions";
 export default function Signup() {
+  const toast = useToast();
+  const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
-  const [cred, setCred] = useState({});
-  const navigate=useNavigate()
+  const navigate = useNavigate();
+  const [cred, setCred] = useState({
+    fullname: "",
+    email: "",
+    password: "",
+  });
 
-  const handleChange = (e) => {
-    let { name, value } = e.target;
-    setCred({ ...cred, [name]: value });
-  };
   const formsubmit = (e) => {
-
-    e.preventDefault();   
-    console.log("hii")
-    data(cred);
-    navigate("/Login")
-  };
-  const data = (formdata) => {
-    localStorage.setItem("loginDetails", JSON.stringify(formdata));
+    e.preventDefault();
+    dispatch(register(cred));
+    toast({
+      title: `registration success`,
+      status: "success",
+      duration: 3000,
+      isClosable: true,
+    });
+    navigate("/Login");
   };
 
   return (
@@ -66,7 +69,10 @@ export default function Signup() {
                 marginLeft: "10px",
               }}
             >
-              <img src="https://assets.milaap.org/assets/milaap-trasparent-logo-25f6253e0156e2f82e2c3daf85575d169864e35ffffd21033ac59da0b4dd88e0.png" />
+              <img
+                alt="img"
+                src="https://assets.milaap.org/assets/milaap-trasparent-logo-25f6253e0156e2f82e2c3daf85575d169864e35ffffd21033ac59da0b4dd88e0.png"
+              />
             </box>
             <Stack w="190px" h="110px" style={{ marginLeft: "-30px" }}>
               <h1 style={{ fontSize: "19px" }}>Welcome to Milaap,</h1>
@@ -101,7 +107,9 @@ export default function Signup() {
                     variant="flushed"
                     placeholder="Full Name"
                     name="fullname"
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      setCred({ ...cred, fullname: e.target.value });
+                    }}
                     htmlSize={49}
                   />
                 </FormControl>
@@ -114,7 +122,9 @@ export default function Signup() {
                     variant="flushed"
                     placeholder="Email"
                     name="email"
-                    onChange={handleChange}
+                    onChange={(e) => {
+                      setCred({ ...cred, email: e.target.value });
+                    }}
                   />
                 </FormControl>
               </Stack>
@@ -126,11 +136,12 @@ export default function Signup() {
                       variant="flushed"
                       placeholder="Password"
                       name="password"
-                      onChange={handleChange}
+                      onChange={(e) => {
+                        setCred({ ...cred, password: e.target.value });
+                      }}
                     />
                     <InputRightElement h={"full"}>
                       <Button
-                       
                         variant={"ghost"}
                         onClick={() =>
                           setShowPassword((showPassword) => !showPassword)
@@ -143,7 +154,8 @@ export default function Signup() {
                 </FormControl>
               </Stack>
               <Stack spacing={10} pt={10}>
-                <Button  type="submit"
+                <Button
+                  type="submit"
                   style={{ backgroundColor: "#9C3353" }}
                   borderRadius="33px"
                   loadingText="Submitting"
@@ -161,15 +173,17 @@ export default function Signup() {
 
             <Stack pt={10}>
               <Text align={"center"}>
-                Already signed up with Milaap?{" "}
-                <Button
-                  size="md"
-                  borderRadius="33px"
-                  style={{ backgroundColor: "#9C3353" }}
-                  color="white"
-                >
-                  Login
-                </Button>
+                <Link to="/Login">
+                  Already signed up with Milaap?{" "}
+                  <Button
+                    size="md"
+                    borderRadius="33px"
+                    style={{ backgroundColor: "#9C3353" }}
+                    color="white"
+                  >
+                    Login
+                  </Button>
+                </Link>
               </Text>
             </Stack>
           </Stack>
