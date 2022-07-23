@@ -5,7 +5,7 @@ import Donate from "./Donate";
 import Lend from "./Lend";
 import Pricing from "./Pricing";
 import Home from "./Home";
-
+import Review from "./Review";
 import Signup from "./Signup";
 
 import LendingPayment from "./LendingPaymentPage/LendingPayment";
@@ -25,7 +25,7 @@ const MainRoutes = () => {
       <Route path="/signUp" element={<Signup />} />
 
       <Route path="/lendingPayment" element={<LendingPayment />} />
-      <Route path='/review' element={<Review />} />
+      <Route path='/review' element={<Review/>} />
     </Routes>
   );
 };
