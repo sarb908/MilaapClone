@@ -1,4 +1,4 @@
-# Milaao.org” Website Clone
+# "Milaao.org” Website Clone
 
 ![Homepage ](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/homePage.png?raw=true)
 
@@ -61,7 +61,7 @@ On this page, you can register a user. If the user is already registered, you ca
 
 Here users can browse and add items to the cart by clicking on the Add to Cart button.
 
-![Products Page](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/signup.png?raw=true)
+![Products Page](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/productPage.png?raw=true)
 
 #### Cart Page -
 
