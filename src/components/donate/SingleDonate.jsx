@@ -10,6 +10,7 @@ import {
   Button,
   Link,
   Hide,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,8 +19,9 @@ import { useState } from "react";
 import { getDonate } from "../../store/AppReducer/action";
 import { BsWhatsapp, BsFacebook } from "react-icons/bs";
 import { FaHandHoldingHeart } from "react-icons/fa";
-
+import DonateModal from "./../../pages/DonateModal";
 const SingleDonate = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   const dispatch = useDispatch();
   const { id } = useParams();
   const donate = useSelector((store) => store.reducer.donate);
@@ -347,7 +349,13 @@ const SingleDonate = () => {
           </Box>
         </Box>
         <Hide below="6xl">
-          <Box w="400px" h="600px" padding="20px" bg={"#f7f7f7"} borderRadius="10px">
+          <Box
+            w="400px"
+            h="600px"
+            padding="20px"
+            bg={"#f7f7f7"}
+            borderRadius="10px"
+          >
             <Flex justifyContent="space-between">
               <Box>
                 <FaHandHoldingHeart />
@@ -397,6 +405,7 @@ const SingleDonate = () => {
               w="300px"
               padding="25px"
               borderRadius="25px"
+              onClick={onOpen}
             >
               Donate now
             </Button>
@@ -426,6 +435,7 @@ const SingleDonate = () => {
           </Box>
         </Hide>
       </Flex>
+      <DonateModal isOpen={isOpen} onOpen={onOpen} onClose={onClose} />
     </Box>
   );
 };
