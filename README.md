@@ -55,7 +55,7 @@ This page is functional and responsive.
 
 On this page, you can register a user. If the user is already registered, you can simply sign in by providing valid details of the user.
 
-![Sign up](./client/screenshots/Login.png)
+![Sign up](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/signup.png?raw=true)
 
 #### Products Page -
 
