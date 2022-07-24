@@ -1,70 +1,110 @@
-# Getting Started with Create React App
+# Milaao.org” Website Clone
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Homepage ](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/homePage.png?raw=true)
 
-## Available Scripts
+### Milaap is an online crowdfunding platform that enables anyone across India to raise funds.
 
-In the project directory, you can run:
+This project is about building a web application to donate and lend money to the needy ones. It have some cool features like save the data in redux-store and loacl-storage to reduce the dependency of network requests, toast notification for every action, pop up modal to display extra details and responsive for every screen size.
 
-### `npm start`
+## Technologies we used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+[![React](<https://img.shields.io/badge/React_(17.0.2)-20232A?style=for-the-badge&logo=react&logoColor=61DAFB>)](https://reactjs.org/)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+[![GPLv3 License](<https://img.shields.io/badge/Redux_(4.1.2)-593D88?style=for-the-badge&logo=redux&logoColor=white>)](https://redux.js.org/)
 
-### `npm test`
+[![AGPL License](https://img.shields.io/badge/Chakra%20UI-3bc7bd?style=for-the-badge&logo=chakraui&logoColor=white)](https://chakra-ui.com/)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[![AGPL License](https://img.shields.io/badge/Rest_API-02303A?style=for-the-badge&logo=react-router&logoColor=white)](https://www.npmjs.com/package/json-server)
 
-### `npm run build`
+[![AGPL License](https://img.shields.io/badge/Styled-Component-orange)](https://styled-components.com/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Features
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Cart Add/Remove Items
+- Pop modal and Toast notification
+- Cart Update Quantities
+- Payment page which calculates the products prices dynamically.
+- Order Summary
+- Login/Signup User Account
+<!-- ## 🚀 Our Team Members:-
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+- Ramesh [[LinkedIn Profile](https://www.linkedin.com/in/ramesh-mane-268a0014a/)]
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Shriram [[LinkedIn Profile](https://www.linkedin.com/in/shriram-deshpande-477590136/)]
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Sarbjot Singh [[LinkedIn Profile](https://www.linkedin.com/in/sarbjot-/)]
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- shubham barore [[LinkedIn Profile](https://www.linkedin.com/in/shubham-barore-572738159)]
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Pratik Mate [[LinkedIn Profile](https://www.linkedin.com/in/pratik-mate-a6a62919b)]
 
-## Learn More
+- Thanigaivel Ambalavanan [[LinkedIn Profile](https://www.linkedin.com/in/thanigaivel-ambalavanan-3b4a30120/)] -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Screenshots
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### Homepage -
 
-### Code Splitting
+This is the main landing page of our website. Here clicking on any option on the Navbar and Images will redirect the user to the respective Product Page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This page is functional and responsive.
 
-### Analyzing the Bundle Size
+![Homepage ](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/homePage.png?raw=true)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+#### Sign up / Sign in Page -
 
-### Making a Progressive Web App
+On this page, you can register a user. If the user is already registered, you can simply sign in by providing valid details of the user.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![Sign up](./client/screenshots/Login.png)
 
-### Advanced Configuration
+#### Products Page -
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Here users can browse and add items to the cart by clicking on the Add to Cart button.
 
-### Deployment
+![Products Page](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/signup.png?raw=true)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Cart Page -
 
-### `npm run build` fails to minify
+Here all the products added to the cart will be shown. On this page, you can also remove the items. By clicking on the "pay now" button you will be redirected to the checkout page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Cart](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/cart.png?raw=true)
+
+#### Payment Page -
+
+On this page, users can add their address details and add their payment details.
+
+By providing these details users can place orders.
+
+![Paymnet Page](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/payment.PNG?raw=true)
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/shriram083/Fraazo-Clone.git
+```
+
+Go to the project directory
+
+```bash
+  cd greasy-sofa-2441
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start the localhost server
+
+```bash
+  npm start
+```
+
+## Or refer any one deployed link
+
+### Vercel Link
+
+[https://milaap.vercel.app/](https://milaap.vercel.app/)
