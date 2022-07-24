@@ -82,7 +82,7 @@ By providing these details users can place orders.
 Clone the project
 
 ```bash
-  git clone https://github.com/shriram083/Fraazo-Clone.git
+  git clone https://github.com/sarb908/greasy-sofa-2441
 ```
 
 Go to the project directory
