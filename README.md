@@ -1,4 +1,4 @@
-# "Milaao.org” Website Clone
+# "Milaap.org” Website Clone
 
 ![Homepage ](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/homePage.png?raw=true)
 
