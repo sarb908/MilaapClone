@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDonate } from "../store/AppReducer/action";
 import DonateCard from "./donate/DonateCard";
 
-const HomeDonate = () => {
+const HomeDonate = (props) => {
   const dispatch = useDispatch();
   const donate = useSelector((store) => store.reducer.donate);
 
@@ -12,7 +12,7 @@ const HomeDonate = () => {
     if (donate.length === 0) {
       dispatch(getDonate());
     }
-  }, []);
+  }, [dispatch, donate.length]);
 
   return (
     <Box m="auto" pt="80px">
@@ -26,11 +26,16 @@ const HomeDonate = () => {
         ]}
         gap="30px"
       >
-        {donate.map((e, i) => {
-          if (i < 6) {
-            return <DonateCard key={e.id} e={e} />;
-          }
-        })}
+        {donate
+          .filter((e, i) => {
+            if (i >= props.s && i <= props.e) {
+              return true;
+            }
+            return false;
+          })
+          .map((e) => (
+            <DonateCard key={e.id} e={e} />
+          ))}
       </Grid>
     </Box>
   );

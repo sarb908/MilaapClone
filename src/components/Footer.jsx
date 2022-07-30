@@ -12,7 +12,6 @@ import {
   useColorModeValue,
   Flex,
   Center,
-  HStack,
 } from "@chakra-ui/react";
 import {
   FaTwitter,
@@ -58,12 +57,7 @@ const Footer = () => {
       mt="50px"
     >
       <Container as={Stack} maxW={"100%"} paddingTop={"35px"}>
-        <HStack
-          align={"flex"}
-          direction={{ base: "row", md: "column", sm: "column" }}
-          w="100%"
-          gap={"5px"}
-        >
+        <Flex justifyContent={"space-around"} w="100%" gap={"5px"}>
           <Stack align={"flex-start"} gap="20px" fontWeight="400" width="170px">
             <Text fontSize={"15px"} color={"#212121"}>
               <u>D</u>onate towards
@@ -436,7 +430,7 @@ const Footer = () => {
               </Grid>
             </Box>
           </Flex>
-        </HStack>
+        </Flex>
       </Container>
 
       <Box

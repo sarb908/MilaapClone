@@ -113,16 +113,16 @@ const HomePageFund = () => {
           </TabList>
           <TabPanels>
             <TabPanel>
-              <HomeDonate />
+              <HomeDonate s="1" e="6" />
             </TabPanel>
             <TabPanel>
-              <HomeDonate />
+              <HomeDonate s="7" e="12" />
             </TabPanel>
             <TabPanel>
-              <HomeDonate />
+              <HomeDonate s="13" e="18" />
             </TabPanel>
             <TabPanel>
-              <HomeDonate />
+              <HomeDonate s="19" e="24" />
             </TabPanel>
           </TabPanels>
         </Tabs>

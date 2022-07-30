@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 const Review = () => {
   return (
     <>
-      {" "}
       <div>
         <Center>
           <Heading>Milaap Reviews</Heading>

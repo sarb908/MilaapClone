@@ -7,9 +7,11 @@ import {
   Stack,
   useColorModeValue,
   Image,
+  Icon,
   useDisclosure,
 } from "@chakra-ui/react";
 import { ImCart } from "react-icons/im";
+import { HiOutlineUserCircle } from "react-icons/hi";
 import { Link as Linked } from "react-router-dom";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import React from "react";
@@ -89,7 +91,9 @@ export default function Navbar() {
           p="0 10px"
         >
           <Button
-            display={{ base: "none", md: "inline-flex" }}
+            display={"flex"}
+            justifyContent="center"
+            alignItems={"center"}
             fontSize={"18px"}
             height={"45px"}
             borderRadius={"50px"}
@@ -107,13 +111,13 @@ export default function Navbar() {
           </Button>
           <Box>
             <Linked to="/signUp">
-              <i
-                class="far fa-user-circle"
-                style={{
-                  fontSize: "33px",
-                  color: "#9c3353",
-                }}
-              ></i>
+              <Icon
+                stroke="rgb(156, 51, 82)"
+                strokeWidth="1.5"
+                as={HiOutlineUserCircle}
+                w={"40px"}
+                h={"40px"}
+              />
             </Linked>
           </Box>
           <Box position="relative" onClick={onOpen} cursor="pointer">
