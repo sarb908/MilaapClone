@@ -26,12 +26,12 @@ const Login = () => {
     email: "",
     password: "",
   });
-  console.log(signupdata);
+  console.log("json", signupdata);
 
   const navigate = useNavigate();
 
   const formsubmit = (e) => {
-    console.log(data);
+    console.log("now", data);
 
     console.log(data);
     e.preventDefault();

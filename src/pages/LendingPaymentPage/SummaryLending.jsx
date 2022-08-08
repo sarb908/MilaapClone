@@ -9,7 +9,7 @@ const SummaryLending = () => {
       <Text fontSize="13px" color="#9f9f9f" fontWeight="400">
         You are lending towards
       </Text>
-      <Image w="30%" src={cartItems[0].img} />
+      <Image w="30%" src={cartItems[0]?.img} />
       <Text fontSize="13px" color="#542e44" fontWeight="500">
         purpose {cartItems[0]["col-md-8"]}
       </Text>
@@ -20,7 +20,7 @@ const SummaryLending = () => {
 
       <Text fontSize="13px" color="#542e44" fontWeight="500">
         {" "}
-        & {cartItems.length} more loans
+        & {cartItems.length > 1 ? `${cartItems.length - 1}  more loans` : ""}
       </Text>
     </VStack>
   );
