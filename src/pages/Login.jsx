@@ -17,7 +17,6 @@ import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 
-const signupdata = JSON.parse(localStorage.getItem("logindetail")) || {};
 const Login = () => {
   const toast = useToast();
   const [showPassword, setShowPassword] = useState(false);
@@ -26,21 +25,23 @@ const Login = () => {
     email: "",
     password: "",
   });
-  console.log("json", signupdata);
 
   const navigate = useNavigate();
 
   const formsubmit = (e) => {
-    console.log("now", data);
+    const signupdata = JSON.parse(localStorage.getItem("logindetail")) || {};
+    // console.log("json", signupdata);
+    // console.log("now", data);
 
     console.log(data);
     e.preventDefault();
     if (data.email === "") {
       setEmailError("email field is required");
     }
+
     if (
-      signupdata.email === data.email &&
-      Number(signupdata.password) === Number(data.password)
+      signupdata.email.trim() == data.email.trim() &&
+      Number(signupdata.password) == Number(data.password)
     ) {
       toast({
         title: "login suceess",

@@ -21,11 +21,20 @@ export default function Navbar() {
   const { isOpen, onToggle, onOpen, onClose } = useDisclosure();
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
   return (
-    <Box height={"60px"} top="0" width={"100%"} marginBottom={"40px"}>
+    <Box
+      height={"300px"}
+      width={"100%"}
+      zIndex={"sticky"}
+      marginBottom={"40px"}
+      position={"fixed"}
+      top={0}
+      left={0}
+      right={0}
+    >
       <Flex
         bg={useColorModeValue("white", "gray.800")}
         color={useColorModeValue("gray.600", "white")}
-        minH={"60px"}
+        minH={"90px"}
         py={{ base: 2 }}
         px={{ base: 4 }}
         borderBottom={"none"}
