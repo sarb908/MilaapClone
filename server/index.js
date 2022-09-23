@@ -5,7 +5,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/", LendRouter);
+app.use("/lend", LendRouter);
 app.get("/", (req, res) => res.send("Homepage"));
 
 app.listen(8080, () => {

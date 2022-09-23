@@ -3,7 +3,7 @@ const LendModel = require("../models/LendModel");
 
 const LendRouter = express.Router();
 
-LendRouter.get("/lend", async (req, res) => {
+LendRouter.get("/", async (req, res) => {
   const queryObj = { ...req.query };
 
   const excludedFields = ["_sort", "_order"];
