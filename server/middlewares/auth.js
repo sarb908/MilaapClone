@@ -55,7 +55,7 @@ const login = async (req, res) => {
 };
 
 const authentication = async (req, res, next) => {
-  // console.log(req.headers);
+  //  console.log(req.headers);
   const token = req.headers.token.split(" ")[1];
   jwt.verify(token, "shh", function (err, decoded) {
     if (err) {
