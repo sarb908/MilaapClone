@@ -11,16 +11,22 @@ const DonateItems = () => {
   const location = useLocation();
   const [searchparams] = useSearchParams();
 
-
   useEffect(() => {
-    if (donate.length === 0) {
-      dispatch(getDonate());
-    }
+    dispatch(getDonate());
   }, [location.search]);
 
   return (
     <Box m="auto" pt="80px">
-      <Grid templateColumns={["repeat(1,1fr)","repeat(1,1fr)","repeat(2,1fr)","repeat(2,1fr)", "repeat(3,1fr)"]} gap="30px" >
+      <Grid
+        templateColumns={[
+          "repeat(1,1fr)",
+          "repeat(1,1fr)",
+          "repeat(2,1fr)",
+          "repeat(2,1fr)",
+          "repeat(3,1fr)",
+        ]}
+        gap="30px"
+      >
         {donate.map((e) => {
           return <DonateCard key={e.id} e={e} />;
         })}

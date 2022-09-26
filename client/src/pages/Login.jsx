@@ -14,11 +14,15 @@ import {
 } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import * as types from "./../store/AuthReducer/actionTypes";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import { login } from "../store/AuthReducer/actions";
 
-const signupdata = JSON.parse(localStorage.getItem("logindetail")) || {};
 const Login = () => {
+  const dispatch = useDispatch();
   const toast = useToast();
   const [showPassword, setShowPassword] = useState(false);
   const [emailError, setEmailError] = useState("");
@@ -26,37 +30,34 @@ const Login = () => {
     email: "",
     password: "",
   });
-  console.log("json", signupdata);
-
   const navigate = useNavigate();
+  const googleHandler = () => {
+    window.location.href = "http://localhost:8080/auth/google"
+  }
 
   const formsubmit = (e) => {
-    console.log("now", data);
-
-    console.log(data);
     e.preventDefault();
-    if (data.email === "") {
-      setEmailError("email field is required");
-    }
-    if (
-      signupdata.email === data.email &&
-      Number(signupdata.password) === Number(data.password)
-    ) {
-      toast({
-        title: "login suceess",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-      navigate("/");
-    } else {
-      toast({
-        title: "user datail does not match",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
-    }
+    console.log("now", data);
+    dispatch(login(data)).then((d) => {
+      console.log(d.type);
+
+      if (d.type == types.LOGIN_SUCCESS) {
+        toast({
+          title: "login suceess",
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        navigate("/");
+      } else {
+        toast({
+          title: "user datail does not match",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
+    });
   };
 
   return (
@@ -112,30 +113,17 @@ const Login = () => {
                 marginTop: "-10px",
               }}
             >
-              <h1 style={{ color: "grey", size: "20px", marginTop: "-45px" }}>
+              <h1
+                style={{
+                  color: "grey",
+                  size: "20px",
+                  margin: "-45px auto 20px",
+                }}
+              >
                 Quickly login using
               </h1>
-              <HStack pt={5} spacing={9}>
-                <Button
-                  ml={10}
-                  style={{
-                    color: "white",
-                    backgroundColor: "#3b5998",
-                    borderRadius: "33px",
-                  }}
-                >
-                  Facebook
-                </Button>
-                <Button
-                  style={{
-                    color: "white",
-                    backgroundColor: "#dd4b39",
-                    borderRadius: "33px",
-                  }}
-                >
-                  Google
-                </Button>
-              </HStack>
+
+              <Button onClick = {googleHandler} leftIcon={<FcGoogle />}>Google</Button>
             </box>
 
             <form onSubmit={formsubmit}>
@@ -153,10 +141,6 @@ const Login = () => {
                         setData({ ...data, email: e.target.value });
                       }}
                     />
-
-                    <InputRightElement width={"70px"} cursor={"pointer"}>
-                      <Text>Get Otp</Text>
-                    </InputRightElement>
                   </InputGroup>
                   <Text style={{ marginLeft: "-270px", color: "red" }}>
                     {emailError}

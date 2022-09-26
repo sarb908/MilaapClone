@@ -29,7 +29,7 @@ app.get(
     //console.log(req.user);
     //res.send(req.user);
     res.redirect(
-      `http://localhost:8080/google/auth?token=${req.user.token}&img=${req.user.img}`
+      `http://localhost:3000/google?token=${req.user.token}&img=${req.user.img}`
     );
   }
 );

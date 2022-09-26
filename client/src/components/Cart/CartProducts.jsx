@@ -8,15 +8,18 @@ import {
   Badge,
   useToast,
 } from "@chakra-ui/react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SmallCloseIcon } from "@chakra-ui/icons";
 import { deleteCartItemsHandler } from "../../store/CartReducer/action";
 const CartProducts = (props) => {
+  const { isAuth, token } = useSelector((state) => state.authReducer);
   const toast = useToast();
   const [fund, setFund] = useState(props.required_price);
   const dispatch = useDispatch();
   const clickHandler = () => {
-    dispatch(deleteCartItemsHandler(props.id));
+    if (isAuth) {
+      dispatch(deleteCartItemsHandler(props._id, token));
+    }
   };
   const handleChange = (event) => {
     if (Number(event.target.value) > Number(props.required_price)) {

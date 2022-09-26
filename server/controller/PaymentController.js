@@ -23,7 +23,7 @@ PaymentRouter.post(
       const line_items = cartItems.map((item) => {
         return {
           price_data: {
-            currency: "usd",
+            currency: "inr",
             product_data: {
               name: item[`leno-link-label`],
               images: [item.img],
@@ -32,7 +32,7 @@ PaymentRouter.post(
                 id: item._id,
               },
             },
-            unit_amount: 100,
+            unit_amount: 10000,
           },
           quantity: 1,
         };

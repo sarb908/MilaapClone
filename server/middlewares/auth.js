@@ -35,6 +35,7 @@ const login = async (req, res) => {
 
     bcrypt.compare(password, user.password, async function (err, result) {
       if (err || !result) {
+        console.log(err);
         return res.status(400).send("try again");
       }
       jwt.sign(
@@ -42,6 +43,7 @@ const login = async (req, res) => {
         "shh",
         function (err, token) {
           if (err) {
+            console.log(err);
             return res.status(400).send("try again");
           }
           console.log(token);

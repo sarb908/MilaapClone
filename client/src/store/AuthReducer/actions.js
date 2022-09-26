@@ -6,26 +6,30 @@ export const register = (payload) => (dispatch) => {
     type: types.REGISTER_REQUEST,
   });
 
-  localStorage.setItem("logindetail", JSON.stringify(payload));
-
-  dispatch({
-    type: types.REGISTER_SUCCESS,
-  });
-  dispatch({
-    type: types.REGISTER_FAILURE,
-  });
+  return axios
+    .post("http://localhost:8080/signup", payload)
+    .then((res) => {
+      console.log(res);
+      return dispatch({
+        type: types.REGISTER_SUCCESS,
+      });
+    })
+    .catch((e) => {
+      return dispatch({ type: types.REGISTER_FAILURE });
+    });
 };
 
 export const login = (payload1) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
   return axios
-    .post("https://reqres.in//api/login", payload1)
+    .post("http://localhost:8080/login", payload1)
     .then((res) => {
-      dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.token });
-      return types.LOGIN_SUCCESS;
+      {
+        console.log(res);
+        return dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.token });
+      }
     })
     .catch((e) => {
-      dispatch({ type: types.LOGIN_FAILURE });
-      return types.LOGIN_FAILURE;
+      return dispatch({ type: types.LOGIN_FAILURE });
     });
 };

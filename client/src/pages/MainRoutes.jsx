@@ -17,6 +17,7 @@ import Login from "./Login";
 import SingleDonate from "../components/donate/SingleDonate";
 import SuccessPayment from "./SuccessPayment";
 import Review from "./Review";
+import GoogleAuth from "./GoogleAuth";
 
 const MainRoutes = () => {
   return (
@@ -29,7 +30,7 @@ const MainRoutes = () => {
       <Route path="/pricing" element={<Pricing />} />
       <Route path="/contactUs" element={<ContactUs />} />
       <Route path="/review" element={<Review />} />
-
+      <Route path="/google" element={<GoogleAuth />} />
       <Route path="/signUp" element={<Signup />} />
       <Route path="/Login" element={<Login />} />
 

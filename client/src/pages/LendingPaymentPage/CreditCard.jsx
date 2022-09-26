@@ -30,7 +30,7 @@ localStorage.setItem(
     cardNumber: "1234567891234567",
     expiryMonth: "01",
     expiryYear: "24",
-    cardName: "fraazo",
+    cardName: "milaap",
     cvv: "123",
   })
 );

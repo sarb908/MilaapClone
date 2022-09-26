@@ -10,7 +10,24 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
+import { useSelector } from "react-redux";
+import axios from "axios";
 const LendingUserInfo = (props) => {
+  const { token } = useSelector((state) => state.authReducer);
+  const handlePayment = () => {
+    axios({
+      method: "post",
+      url: "http://localhost:8080/stripe/create-checkout-session",
+
+      headers: {
+        token: `Bearer ${token}`,
+      },
+    }).then((r) => {
+      console.log(r.data.url);
+      alert(r.data.url);
+      window.location.href = r.data.url;
+    });
+  };
   return (
     <Box w="90%" color="white" mt="30px" p="0 30px">
       <Text
@@ -45,8 +62,9 @@ const LendingUserInfo = (props) => {
           gap="50px"
         >
           <Flex alignItems={"center"} w="80%" justify={"center"}>
-            <Text fontSize={"12px"}>You are lending</Text>
-            <Text fontSize={"16px"}>$ {props.total}</Text>
+            <Text fontSize={"12px"}>You are lending </Text>
+
+            <Text fontSize={"16px"}> {props.total}</Text>
           </Flex>
           <Image
             h="95%"
@@ -87,7 +105,7 @@ const LendingUserInfo = (props) => {
             fontSize="12px"
             borderRadius={"15px"}
           >
-            $ 0.0
+            INR 0.0
           </Badge>
           <Switch fill="red" colorScheme="pink" size="lg" />
         </Flex>
@@ -108,7 +126,7 @@ const LendingUserInfo = (props) => {
             p="0 42px"
             fontSize="14px"
             borderRadius={"20px"}
-            onClick={props.onClick}
+            onClick={handlePayment}
           >
             Continue
           </Button>

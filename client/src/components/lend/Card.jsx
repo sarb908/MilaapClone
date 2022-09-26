@@ -16,16 +16,17 @@ import {
 } from "@chakra-ui/react";
 import { useSelector, useDispatch } from "react-redux";
 import { updateCartItemsHandler } from "../../store/CartReducer/action";
-import { Link as RouterLink } from "react-router-dom";
 
 const Card = ({ e }) => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
+  const { isAuth, token } = useSelector((state) => state.authReducer);
   const toast = useToast();
   const [fund, setFund] = useState(e.required_price);
   const [item, setItem] = useState({});
   useEffect(() => {
-    const temp = cartItems.find((item) => Number(item.id) === Number(e.id));
+    const temp = cartItems.find((item) =>item._id === e._id);
+    console.log(temp);
     setItem(temp);
   }, [cartItems, e.id]);
   const handleChange = (event) => {
@@ -40,7 +41,15 @@ const Card = ({ e }) => {
     setFund(event.target.value);
   };
   const handleClick = () => {
-    dispatch(updateCartItemsHandler({ ...e, required_price: fund }));
+    if (isAuth) {
+      dispatch(updateCartItemsHandler({ ...e, required_price: fund }, token));
+    } else {
+      toast({
+        title: `Please Login`,
+        status: "error",
+        isClosable: true,
+      });
+    }
   };
   return (
     <Flex
@@ -52,9 +61,8 @@ const Card = ({ e }) => {
     >
       <Box w="250px">
         <Box>
-          <RouterLink to={`/lend/${e.id}`}>
-            <Image src={e.img} />
-          </RouterLink>
+          <Image src={e.img} />
+
           <Progress
             hasStripe
             isAnimated
@@ -96,11 +104,10 @@ const Card = ({ e }) => {
       </Box>
       <Box textAlign="left" ml="25px" w={400}>
         <Stack direction="column">
-          <RouterLink to={`/lend/${e.id}`}>
-            <Text fontSize="2xl" color={"#9c3353"}>
-              {e["leno-link-label"]}
-            </Text>
-          </RouterLink>
+          <Text fontSize="2xl" color={"#9c3353"}>
+            {e["leno-link-label"]}
+          </Text>
+
           <Stack direction="row">
             <ImLocation style={{ color: "gray", marginTop: "5px" }} />
             <Text color="gray">{e.location}</Text>
@@ -108,9 +115,7 @@ const Card = ({ e }) => {
           <Text fontSize="13px">Purpose {e["col-md-8"]}</Text>
           <Text fontSize="13px">
             {e.truncate}
-            <Link color={"#9c3353"}>
-              <RouterLink to={`/lend/${e.id}`}>Read more</RouterLink>
-            </Link>
+            <Link color={"#9c3353"}>Read more</Link>
           </Text>
           <InputGroup w="230px" size="sm">
             <InputLeftAddon children="₹" display={!!item ? "none" : "block"} />

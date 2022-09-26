@@ -20,9 +20,10 @@ export default function CartModal({ isOpen, onOpen, onClose }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
+  const { isAuth, token } = useSelector((state) => state.authReducer);
   useEffect(() => {
-    if (cartItems.length === 0) {
-      dispatch(getCartItemsHandler());
+    if (cartItems.length === 0 && isAuth) {
+      dispatch(getCartItemsHandler(token));
     }
   }, []);
   useEffect(() => {

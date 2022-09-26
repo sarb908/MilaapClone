@@ -12,6 +12,7 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import * as types from "./../store/AuthReducer/actionTypes";
 import { useState } from "react";
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
@@ -31,14 +32,25 @@ export default function Signup() {
 
   const formsubmit = (e) => {
     e.preventDefault();
-    dispatch(register(cred));
-    toast({
-      title: `registration success`,
-      status: "success",
-      duration: 3000,
-      isClosable: true,
+    dispatch(register(cred)).then((d) => {
+      console.log(d.type);
+      if (d.type === types.REGISTER_SUCCESS) {
+        toast({
+          title: `registration success`,
+          status: "success",
+          duration: 3000,
+          isClosable: true,
+        });
+        navigate("/Login");
+      } else {
+        toast({
+          title: `registration fail`,
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        });
+      }
     });
-    navigate("/Login");
   };
 
   return (

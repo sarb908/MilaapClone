@@ -1,11 +1,13 @@
 import axios from "axios";
 import * as types from "./actionTypes";
-export const getCartItemsHandler = () => (dispatch) => {
+export const getCartItemsHandler = (token) => (dispatch) => {
   dispatch({
     type: types.GET_CART_ITEMS_REQUEST,
   });
   return axios
-    .get(`https://milapp-json-server.herokuapp.com/cart`)
+    .get(`http://localhost:8080/cart`, {
+      headers: { token: `Bearer ${token}` },
+    })
     .then((d) => {
       console.log(d.data);
       return dispatch({
@@ -21,12 +23,14 @@ export const getCartItemsHandler = () => (dispatch) => {
     });
 };
 
-export const updateCartItemsHandler = (item) => (dispatch) => {
+export const updateCartItemsHandler = (item, token) => (dispatch) => {
   dispatch({
     type: types.UPDATE_CART_ITEMS_REQUEST,
   });
   return axios
-    .post(`https://milapp-json-server.herokuapp.com/cart`, item)
+    .post(`http://localhost:8080/cart`, item, {
+      headers: { token: `Bearer ${token}` },
+    })
     .then((d) => {
       console.log(d.data);
       return dispatch({
@@ -34,7 +38,7 @@ export const updateCartItemsHandler = (item) => (dispatch) => {
       });
     })
     .then(() => {
-      return dispatch(getCartItemsHandler());
+      return dispatch(getCartItemsHandler(token));
     })
     .catch((err) => {
       console.log(err);
@@ -44,12 +48,14 @@ export const updateCartItemsHandler = (item) => (dispatch) => {
     });
 };
 
-export const deleteCartItemsHandler = (id) => (dispatch) => {
+export const deleteCartItemsHandler = (id, token) => (dispatch) => {
   dispatch({
     type: types.DELETE_CART_ITEMS_REQUEST,
   });
   return axios
-    .delete(`https://milapp-json-server.herokuapp.com/cart/${id}`)
+    .delete(`http://localhost:8080/cart/${id}`, {
+      headers: { token: `Bearer ${token}` },
+    })
     .then((d) => {
       console.log(d.data);
       return dispatch({
@@ -57,7 +63,7 @@ export const deleteCartItemsHandler = (id) => (dispatch) => {
       });
     })
     .then(() => {
-      return dispatch(getCartItemsHandler());
+      return dispatch(getCartItemsHandler(token));
     })
     .catch((err) => {
       console.log(err);

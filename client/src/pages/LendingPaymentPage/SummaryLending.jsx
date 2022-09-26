@@ -20,7 +20,7 @@ const SummaryLending = () => {
 
       <Text fontSize="13px" color="#542e44" fontWeight="500">
         {" "}
-        & {cartItems.length > 1 ? `${cartItems.length - 1}  more loans` : ""}
+        {cartItems.length > 1 ? `&${cartItems.length - 1}  more loans` : ""}
       </Text>
     </VStack>
   );

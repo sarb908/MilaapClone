@@ -9,9 +9,7 @@ const HomeDonate = (props) => {
   const donate = useSelector((store) => store.reducer.donate);
 
   useEffect(() => {
-    if (donate.length === 0) {
-      dispatch(getDonate());
-    }
+    dispatch(getDonate());
   }, [dispatch, donate.length]);
 
   return (

@@ -28,9 +28,7 @@ const SingleDonate = () => {
   const [item, setItem] = useState({});
 
   useEffect(() => {
-    if (donate?.length === 0) {
-      dispatch(getDonate());
-    }
+    dispatch(getDonate());
   }, [donate?.length, dispatch]);
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 const LendSort = () => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const [searchParams, setSearchParams] = useSearchParams();
   const urlSort = searchParams.get("sortBy");
   const [sortBy, setSortby] = useState(urlSort || "");
@@ -13,15 +13,15 @@ const LendSort = () => {
   const handleSort = (e) => {
     setSortby(e.target.value);
   };
-  
+
   useEffect(() => {
     if (sortBy) {
-      let params = {}
-      sortBy && (params.sortBy = sortBy)
+      let params = {};
+      sortBy && (params.sortBy = sortBy);
 
-      setSearchParams(params)
+      setSearchParams(params);
     }
-  },[dispatch, setSearchParams, sortBy])
+  }, [dispatch, setSearchParams, sortBy]);
 
   return (
     <Box>
@@ -30,11 +30,9 @@ const LendSort = () => {
           <Text fontWeight={"semibold"}>Sort by</Text>
         </Box>
         <Select borderRadius={"25px"} size="sm" onChange={handleSort}>
-          <option value="desc">Popularity</option>
-          <option value="asc">Expiry</option>
-          <option value="desc">Pending amount</option>
-          <option value="asc">Recent</option>
-          <option value="desc">Interest rate</option>
+          <option value="desc">Sort By Lending Price</option>
+          <option value="asc">Increasing</option>
+          <option value="desc">Decreasing</option>
         </Select>
         <Button borderRadius={"20px"} size="sm" bg="white" variant={"outline"}>
           <TbArrowsDownUp style={{ color: "#333333", width: "25px" }} />
