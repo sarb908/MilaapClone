@@ -1,6 +1,4 @@
-const express = require("express");
 const CartModel = require("../models/CartModel");
-const { authentication } = require("./../middlewares/auth");
 
 const getCartItems = async (req, res) => {
   try {

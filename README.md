@@ -64,36 +64,8 @@ On this page, users can add their address details and add their payment details.
 
 By providing these details users can place orders.
 
-![Paymnet Page](https://github.com/sarb908/MilaapClone/blob/main/client/src/assets/milaap-screenshots/payment.PNG?raw=true)
+![Paymnet Page](https://github.com/sarb908/MilaapClone/blob/main/client/src/assets/milaap-screenshots/paymilaap.PNG?raw=true)
 
-## Run Locally
-
-Clone the project
-
-```bash
-  git clone https://github.com/sarb908/greasy-sofa-2441
-```
-
-Go to the project directory
-
-```bash
-  cd greasy-sofa-2441
-```
-
-Install dependencies
-
-```bash
-  npm install
-```
-
-Start the localhost server
-
-```bash
-  npm start
-```
-
-## Or refer any one deployed link
-
-### Vercel Link
+## refer deployed link
 
 [https://milaap-app-clone.netlify.app/](https://milaap-app-clone.netlify.app/)
