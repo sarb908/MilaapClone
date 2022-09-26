@@ -40,7 +40,6 @@ const CreditCard = (props) => {
   //////// HANDLING ON CHANGE
   const handleOnChange = (e) => {
     let { name, value } = e.target;
-    //  console.log("card", name, value, name.length);
 
     if (name === "cvv") {
       if (value.length > 3) {
@@ -75,7 +74,6 @@ const CreditCard = (props) => {
         [name]: value,
       });
     }
-    ////   console.log(cardPaymentDetails);
   };
 
   //////// HANDLING ON SUBMIT
@@ -88,7 +86,6 @@ const CreditCard = (props) => {
       savedPaymentDetails.cardNumber === cardPaymentDetails.cardNumber &&
       savedPaymentDetails.cvv === cardPaymentDetails.cvv
     ) {
-      console.log("CARD PAYMENT SUCCESS");
       toast({
         title: `payment successful`,
         description: "",
@@ -107,7 +104,6 @@ const CreditCard = (props) => {
         duration: 3000,
         isClosable: true,
       });
-      console.log("CARD PAYMENT FAILURE");
     }
   };
   return (

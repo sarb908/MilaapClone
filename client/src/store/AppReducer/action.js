@@ -19,7 +19,6 @@ export const getLend = (params) => (dispatch) => {
 export const getDonate =
   (data = "") =>
   (dispatch) => {
-    console.log(data);
     dispatch({ type: GET_DONATE_DATA_REQUEST });
     axios
       .get(

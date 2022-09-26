@@ -58,7 +58,7 @@ const CartProducts = (props) => {
             h="40px"
             color="#858585"
           >
-            $
+            ₹
           </Badge>
           <Input
             size="md"

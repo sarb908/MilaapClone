@@ -14,10 +14,9 @@ passport.use(
       // User.findOrCreate({ googleId: profile.id }, function (err, user) {
       //   return cb(err, user);
       // });
-      console.log("emailGoodle", profile._json.email);
+
       const user = await UserModel.findOne({ email: profile._json.email });
 
-      console.log("mongoUser", user);
       if (user) {
         jwt.sign(
           { _id: user._id, email: user.email },
@@ -26,7 +25,7 @@ passport.use(
             if (err) {
               return res.status(400).send("try again");
             }
-            console.log(token);
+
             //  return res.send({ token });
             return cb(null, { img: profile._json.picture, token });
           }
@@ -39,7 +38,6 @@ passport.use(
           password: Math.random() * 1000 + "xyz",
         });
 
-        console.log(newUser);
         jwt.sign(
           { _id: newUser._id, email: newUser.email },
           "shh",

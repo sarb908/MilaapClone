@@ -30,7 +30,7 @@ const LendSort = () => {
           <Text fontWeight={"semibold"}>Sort by</Text>
         </Box>
         <Select borderRadius={"25px"} size="sm" onChange={handleSort}>
-          <option value="desc">Sort By Lending Price</option>
+          <option value="desc">Lending Price</option>
           <option value="asc">Increasing</option>
           <option value="desc">Decreasing</option>
         </Select>

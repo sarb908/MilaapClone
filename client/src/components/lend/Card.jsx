@@ -25,8 +25,8 @@ const Card = ({ e }) => {
   const [fund, setFund] = useState(e.required_price);
   const [item, setItem] = useState({});
   useEffect(() => {
-    const temp = cartItems.find((item) =>item._id === e._id);
-    console.log(temp);
+    const temp = cartItems.find((item) => item._id === e._id);
+
     setItem(temp);
   }, [cartItems, e.id]);
   const handleChange = (event) => {

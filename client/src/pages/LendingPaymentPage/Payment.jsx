@@ -51,7 +51,6 @@ const Payment = (props) => {
   const navigate = useNavigate();
   const handleOnChange = (e) => {
     let { name, value } = e.target;
-    //  console.log("card", name, value, name.length);
 
     if (name === "cvv") {
       if (value.length > 3) {
@@ -99,7 +98,6 @@ const Payment = (props) => {
       savedPaymentDetails.cardNumber === cardPaymentDetails.cardNumber &&
       savedPaymentDetails.cvv === cardPaymentDetails.cvv
     ) {
-      console.log("CARD PAYMENT SUCCESS");
       toast({
         title: `payment successful`,
         description: "",
@@ -118,7 +116,6 @@ const Payment = (props) => {
         duration: 3000,
         isClosable: true,
       });
-      console.log("CARD PAYMENT FAILURE");
     }
   };
   ///////////////

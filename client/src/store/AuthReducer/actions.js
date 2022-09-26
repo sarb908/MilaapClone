@@ -9,7 +9,6 @@ export const register = (payload) => (dispatch) => {
   return axios
     .post("https://sarbmilaap.herokuapp.com/signup", payload)
     .then((res) => {
-      console.log(res);
       return dispatch({
         type: types.REGISTER_SUCCESS,
       });
@@ -25,7 +24,6 @@ export const login = (payload1) => (dispatch) => {
     .post("https://sarbmilaap.herokuapp.com/login", payload1)
     .then((res) => {
       {
-        console.log(res);
         return dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.token });
       }
     })

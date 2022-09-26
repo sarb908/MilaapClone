@@ -195,12 +195,12 @@ const NAV_ITEMS = [
     href: "/",
   },
   {
-    label: "Donate",
-    href: "/donate",
-  },
-  {
     label: "Lend",
     href: "/lend",
+  },
+  {
+    label: "Donate",
+    href: "/donate",
   },
   {
     label: "Pricing",

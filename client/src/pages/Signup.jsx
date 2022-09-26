@@ -33,7 +33,6 @@ export default function Signup() {
   const formsubmit = (e) => {
     e.preventDefault();
     dispatch(register(cred)).then((d) => {
-      console.log(d.type);
       if (d.type === types.REGISTER_SUCCESS) {
         toast({
           title: `registration success`,

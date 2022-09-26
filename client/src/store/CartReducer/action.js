@@ -9,14 +9,12 @@ export const getCartItemsHandler = (token) => (dispatch) => {
       headers: { token: `Bearer ${token}` },
     })
     .then((d) => {
-      console.log(d.data);
       return dispatch({
         type: types.GET_CART_ITEMS_SUCCESS,
         payload: d.data,
       });
     })
     .catch((err) => {
-      console.log(err);
       return dispatch({
         type: types.GET_CART_ITEMS_FAILURE,
       });
@@ -32,7 +30,6 @@ export const updateCartItemsHandler = (item, token) => (dispatch) => {
       headers: { token: `Bearer ${token}` },
     })
     .then((d) => {
-      console.log(d.data);
       return dispatch({
         type: types.UPDATE_CART_ITEMS_SUCCESS,
       });
@@ -41,7 +38,6 @@ export const updateCartItemsHandler = (item, token) => (dispatch) => {
       return dispatch(getCartItemsHandler(token));
     })
     .catch((err) => {
-      console.log(err);
       return dispatch({
         type: types.UPDATE_CART_ITEMS_FAILURE,
       });
@@ -57,7 +53,6 @@ export const deleteCartItemsHandler = (id, token) => (dispatch) => {
       headers: { token: `Bearer ${token}` },
     })
     .then((d) => {
-      console.log(d.data);
       return dispatch({
         type: types.DELETE_CART_ITEMS_SUCCESS,
       });
@@ -66,7 +61,6 @@ export const deleteCartItemsHandler = (id, token) => (dispatch) => {
       return dispatch(getCartItemsHandler(token));
     })
     .catch((err) => {
-      console.log(err);
       return dispatch({
         type: types.DELETE_CART_ITEMS_FAILURE,
       });

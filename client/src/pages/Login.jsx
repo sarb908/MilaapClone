@@ -30,22 +30,15 @@ const Login = () => {
     email: "",
     password: "",
   });
-<<<<<<< HEAD:client/src/pages/Login.jsx
-=======
-
->>>>>>> main:src/pages/Login.jsx
   const navigate = useNavigate();
   const googleHandler = () => {
     window.location.href = "https://sarbmilaap.herokuapp.com/auth/google";
   };
 
   const formsubmit = (e) => {
-<<<<<<< HEAD:client/src/pages/Login.jsx
     e.preventDefault();
-    console.log("now", data);
-    dispatch(login(data)).then((d) => {
-      console.log(d.type);
 
+    dispatch(login(data)).then((d) => {
       if (d.type == types.LOGIN_SUCCESS) {
         toast({
           title: "login suceess",
@@ -63,37 +56,6 @@ const Login = () => {
         });
       }
     });
-=======
-    const signupdata = JSON.parse(localStorage.getItem("logindetail")) || {};
-    // console.log("json", signupdata);
-    // console.log("now", data);
-
-    console.log(data);
-    e.preventDefault();
-    if (data.email === "") {
-      setEmailError("email field is required");
-    }
-
-    if (
-      signupdata.email.trim() == data.email.trim() &&
-      Number(signupdata.password) == Number(data.password)
-    ) {
-      toast({
-        title: "login suceess",
-        status: "success",
-        duration: 3000,
-        isClosable: true,
-      });
-      navigate("/");
-    } else {
-      toast({
-        title: "user datail does not match",
-        status: "error",
-        duration: 3000,
-        isClosable: true,
-      });
-    }
->>>>>>> main:src/pages/Login.jsx
   };
 
   return (

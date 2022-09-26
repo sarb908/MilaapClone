@@ -38,12 +38,12 @@ const DonateModal = ({ isOpen, onOpen, onClose }) => {
             <Flex gap={"2%"}>
               <Box ml={"3%"} mt={"2%"}>
                 <label>Current</label>
-                <Select mt={"8%"}>
+                <Select mt={"8%"} fontSize="12px">
                   <option>₹ INR</option>
                   <option>$ USD</option>
                 </Select>
               </Box>
-              <Box mt={"2%"}>
+              <Box m={"2% 10px"}>
                 <label>Amount</label>
                 <Input mt={"3%"} type="number" />
               </Box>
