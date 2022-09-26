@@ -32,8 +32,8 @@ const Login = () => {
   });
   const navigate = useNavigate();
   const googleHandler = () => {
-    window.location.href = "http://localhost:8080/auth/google"
-  }
+    window.location.href = "https://sarbmilaap.herokuapp.com/auth/google";
+  };
 
   const formsubmit = (e) => {
     e.preventDefault();
@@ -123,7 +123,9 @@ const Login = () => {
                 Quickly login using
               </h1>
 
-              <Button onClick = {googleHandler} leftIcon={<FcGoogle />}>Google</Button>
+              <Button onClick={googleHandler} leftIcon={<FcGoogle />}>
+                Google
+              </Button>
             </box>
 
             <form onSubmit={formsubmit}>

@@ -17,7 +17,7 @@ const LendingUserInfo = (props) => {
   const handlePayment = () => {
     axios({
       method: "post",
-      url: "http://localhost:8080/stripe/create-checkout-session",
+      url: "https://sarbmilaap.herokuapp.com/stripe/create-checkout-session",
 
       headers: {
         token: `Bearer ${token}`,

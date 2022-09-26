@@ -7,7 +7,7 @@ export const register = (payload) => (dispatch) => {
   });
 
   return axios
-    .post("http://localhost:8080/signup", payload)
+    .post("https://sarbmilaap.herokuapp.com/signup", payload)
     .then((res) => {
       console.log(res);
       return dispatch({
@@ -22,7 +22,7 @@ export const register = (payload) => (dispatch) => {
 export const login = (payload1) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
   return axios
-    .post("http://localhost:8080/login", payload1)
+    .post("https://sarbmilaap.herokuapp.com/login", payload1)
     .then((res) => {
       {
         console.log(res);

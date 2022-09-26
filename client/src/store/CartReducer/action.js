@@ -5,7 +5,7 @@ export const getCartItemsHandler = (token) => (dispatch) => {
     type: types.GET_CART_ITEMS_REQUEST,
   });
   return axios
-    .get(`http://localhost:8080/cart`, {
+    .get(`https://sarbmilaap.herokuapp.com/cart`, {
       headers: { token: `Bearer ${token}` },
     })
     .then((d) => {
@@ -28,7 +28,7 @@ export const updateCartItemsHandler = (item, token) => (dispatch) => {
     type: types.UPDATE_CART_ITEMS_REQUEST,
   });
   return axios
-    .post(`http://localhost:8080/cart`, item, {
+    .post(`https://sarbmilaap.herokuapp.com/cart`, item, {
       headers: { token: `Bearer ${token}` },
     })
     .then((d) => {
@@ -53,7 +53,7 @@ export const deleteCartItemsHandler = (id, token) => (dispatch) => {
     type: types.DELETE_CART_ITEMS_REQUEST,
   });
   return axios
-    .delete(`http://localhost:8080/cart/${id}`, {
+    .delete(`https://sarbmilaap.herokuapp.com/cart/${id}`, {
       headers: { token: `Bearer ${token}` },
     })
     .then((d) => {

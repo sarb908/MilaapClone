@@ -11,7 +11,7 @@ import {
 export const getLend = (params) => (dispatch) => {
   dispatch({ type: GET_LEND_DATA_REQUEST });
   axios
-    .get("http://localhost:8080/lend", params)
+    .get("https://sarbmilaap.herokuapp.com/lend", params)
     .then((r) => dispatch({ type: GET_LEND_DATA_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: GET_LEND_DATA_FAILURE }));
 };
