@@ -1,6 +1,6 @@
 # "Milaap.org" Website Clone
 
-![Homepage ](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/homePage.png?raw=true)
+![Homepage ](https://github.com/sarb908/MilaapClone/blob/main/client/src/assets/milaap-screenshots/homePage.png?raw=true)
 
 ### Milaap is an online crowdfunding platform that enables anyone across India to raise funds.
 
@@ -20,26 +20,15 @@ This project is about building a web application to donate and lend money to the
 
 ## 🚀 Features
 
+- Stripe Payment Integration
+- Google Oauth with jwt token
+- Filtering/Sorting
+- Searching with Debouncing
 - Cart Add/Remove Items
 - Pop modal and Toast notification
 - Cart Update Quantities
 - Payment page which calculates the products prices dynamically.
-- Order Summary
 - Login/Signup User Account
-<!-- ## 🚀 Our Team Members:-
-
-
-- Ramesh [[LinkedIn Profile](https://www.linkedin.com/in/ramesh-mane-268a0014a/)]
-
-- Shriram [[LinkedIn Profile](https://www.linkedin.com/in/shriram-deshpande-477590136/)]
-
-- Sarbjot Singh [[LinkedIn Profile](https://www.linkedin.com/in/sarbjot-/)]
-
-- shubham barore [[LinkedIn Profile](https://www.linkedin.com/in/shubham-barore-572738159)]
-
-- Pratik Mate [[LinkedIn Profile](https://www.linkedin.com/in/pratik-mate-a6a62919b)]
-
-- Thanigaivel Ambalavanan [[LinkedIn Profile](https://www.linkedin.com/in/thanigaivel-ambalavanan-3b4a30120/)] -->
 
 ## Screenshots
 
@@ -49,25 +38,25 @@ This is the main landing page of our website. Here clicking on any option on the
 
 This page is functional and responsive.
 
-![Homepage ](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/homePage.png?raw=true)
+![Homepage ](https://github.com/sarb908/MilaapClone/blob/main/client/src/assets/milaap-screenshots/homePage.png?raw=true)
 
 #### Sign up / Sign in Page -
 
 On this page, you can register a user. If the user is already registered, you can simply sign in by providing valid details of the user.
 
-![Sign up](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/signup.png?raw=true)
+![Sign up](https://github.com/sarb908/MilaapClone/blob/main/client/src/assets/milaap-screenshots/signup.png?raw=true)
 
 #### Products Page -
 
 Here users can browse and add items to the cart by clicking on the Add to Cart button.
 
-![Products Page](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/productPage.png?raw=true)
+![Products Page](https://github.com/sarb908/MilaapClone/blob/main/client/src/assets/milaap-screenshots/productPage.png?raw=true)
 
 #### Cart Page -
 
 Here all the products added to the cart will be shown. On this page, you can also remove the items. By clicking on the "pay now" button you will be redirected to the checkout page.
 
-![Cart](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/cart.png?raw=true)
+![Cart](https://github.com/sarb908/MilaapClone/blob/main/client/src/assets/milaap-screenshots/cart.png?raw=true)
 
 #### Payment Page -
 
@@ -75,7 +64,7 @@ On this page, users can add their address details and add their payment details.
 
 By providing these details users can place orders.
 
-![Paymnet Page](https://github.com/sarb908/greasy-sofa-2441/blob/main/src/assets/milaap-screenshots/payment.PNG?raw=true)
+![Paymnet Page](https://github.com/sarb908/MilaapClone/blob/main/client/src/assets/milaap-screenshots/payment.PNG?raw=true)
 
 ## Run Locally
 
@@ -107,4 +96,4 @@ Start the localhost server
 
 ### Vercel Link
 
-[https://milaap.vercel.app/](https://milaap.vercel.app/)
+[https://milaap-app-clone.netlify.app/](https://milaap-app-clone.netlify.app/)
