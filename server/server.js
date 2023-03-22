@@ -10,11 +10,11 @@ const PaymentRouter = require("./controller/PaymentController");
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.get("/", (req, res) => res.send("123"));
 app.use("/", AuthRouter);
 app.use("/", PaymentRouter);
 app.use("/cart", CartRouter);
 app.use("/lend", LendRouter);
-app.get("/", (req, res) => res.send("Homepage"));
 app.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["profile", "email"] })
