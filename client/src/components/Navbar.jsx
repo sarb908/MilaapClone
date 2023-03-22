@@ -22,7 +22,6 @@ export default function Navbar() {
   const cartItems = useSelector((state) => state.cartReducer.cartItems);
   return (
     <Box
-      height={"300px"}
       width={"100%"}
       zIndex={"sticky"}
       marginBottom={"40px"}

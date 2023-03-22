@@ -32,7 +32,7 @@ const Login = () => {
   });
   const navigate = useNavigate();
   const googleHandler = () => {
-    window.location.href = "https://sarbmilaap.herokuapp.com/auth/google";
+    window.location.href = "https://milaapsarb.onrender.com/auth/google";
   };
 
   const formsubmit = (e) => {

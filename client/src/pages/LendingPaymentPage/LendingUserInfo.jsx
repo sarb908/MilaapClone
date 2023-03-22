@@ -17,7 +17,7 @@ const LendingUserInfo = (props) => {
   const handlePayment = () => {
     axios({
       method: "post",
-      url: "https://sarbmilaap.herokuapp.com/stripe/create-checkout-session",
+      url: "https://milaapsarb.onrender.com/stripe/create-checkout-session",
 
       headers: {
         token: `Bearer ${token}`,

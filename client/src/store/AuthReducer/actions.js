@@ -7,7 +7,7 @@ export const register = (payload) => (dispatch) => {
   });
 
   return axios
-    .post("https://sarbmilaap.herokuapp.com/signup", payload)
+    .post("https://milaapsarb.onrender.com/signup", payload)
     .then((res) => {
       return dispatch({
         type: types.REGISTER_SUCCESS,
@@ -21,7 +21,7 @@ export const register = (payload) => (dispatch) => {
 export const login = (payload1) => (dispatch) => {
   dispatch({ type: types.LOGIN_REQUEST });
   return axios
-    .post("https://sarbmilaap.herokuapp.com/login", payload1)
+    .post("https://milaapsarb.onrender.com/login", payload1)
     .then((res) => {
       {
         return dispatch({ type: types.LOGIN_SUCCESS, payload: res.data.token });

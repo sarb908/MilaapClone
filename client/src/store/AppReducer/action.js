@@ -11,7 +11,7 @@ import {
 export const getLend = (params) => (dispatch) => {
   dispatch({ type: GET_LEND_DATA_REQUEST });
   axios
-    .get("https://sarbmilaap.herokuapp.com/lend", params)
+    .get("https://milaapsarb.onrender.com/lend", params)
     .then((r) => dispatch({ type: GET_LEND_DATA_SUCCESS, payload: r.data }))
     .catch((e) => dispatch({ type: GET_LEND_DATA_FAILURE }));
 };
@@ -22,7 +22,7 @@ export const getDonate =
     dispatch({ type: GET_DONATE_DATA_REQUEST });
     axios
       .get(
-        `https://milapp-json-server.herokuapp.com/donate?${
+        `https://milaaplendingserver.onrender.com/donate?${
           data?.length > 0 ? `q=${data}` : ""
         }`
       )

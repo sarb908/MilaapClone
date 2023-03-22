@@ -5,7 +5,7 @@ export const getCartItemsHandler = (token) => (dispatch) => {
     type: types.GET_CART_ITEMS_REQUEST,
   });
   return axios
-    .get(`https://sarbmilaap.herokuapp.com/cart`, {
+    .get(`https://milaapsarb.onrender.com/cart`, {
       headers: { token: `Bearer ${token}` },
     })
     .then((d) => {
@@ -26,7 +26,7 @@ export const updateCartItemsHandler = (item, token) => (dispatch) => {
     type: types.UPDATE_CART_ITEMS_REQUEST,
   });
   return axios
-    .post(`https://sarbmilaap.herokuapp.com/cart`, item, {
+    .post(`https://milaapsarb.onrender.com/cart`, item, {
       headers: { token: `Bearer ${token}` },
     })
     .then((d) => {
@@ -49,7 +49,7 @@ export const deleteCartItemsHandler = (id, token) => (dispatch) => {
     type: types.DELETE_CART_ITEMS_REQUEST,
   });
   return axios
-    .delete(`https://sarbmilaap.herokuapp.com/cart/${id}`, {
+    .delete(`https://milaapsarb.onrender.com/cart/${id}`, {
       headers: { token: `Bearer ${token}` },
     })
     .then((d) => {
