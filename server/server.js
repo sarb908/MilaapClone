@@ -10,7 +10,7 @@ const PaymentRouter = require("./controller/PaymentController");
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.get("/", (req, res) => res.send("123"));
+app.get("/", (req, res) => res.send("homepage"));
 app.use("/", AuthRouter);
 app.use("/", PaymentRouter);
 app.use("/cart", CartRouter);
